@@ -1,0 +1,124 @@
+<template>
+	<section id="app-people" class="">
+
+		<div class="bg col-12 text-left app-section-title">
+			<h1 class="display-2">People</h1>
+		</div>
+
+		<div id="people-1" class="br row justify-content-center">
+			<div class="bg col-11 app-section-subtitle">
+				<h2 class="display-4 text-center">Initiators</h2>
+			</div>
+
+			<div class="bg col-11">
+				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap top-enter">
+					<div v-for="person in featuredPeople" class="bp col-md-5 text-center tesc-founder">
+						<img :src="person.picture" :alt="person.name" class="rounded-circle" width="140" height="140">
+						<h2>{{ person.name }}</h2>
+						<p>{{person.description}}<br><a :href="person.link" class="btn btn-app-color" role="button">Read more&raquo;</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="people-2" class="br row justify-content-center">
+			<div class="bg col-11 app-section-subtitle">
+				<h2 class="display-4 text-center">Collaborators</h2>
+			</div>
+
+			<div class="bg col-11">
+				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap bottom-enter">
+					<a v-for="person in collaborators" :href="person.link" class="bp col-md-3 text-center tesc-collaborator">
+						<img :src="person.picture" :alt="person.name" class="rounded-circle" width="140" height="140">
+						<h2>{{ person.name }}</h2>
+						<p>{{ person.description }}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</template>
+
+
+<script>
+	export default {
+		data() {
+			return {
+				featuredPeople: [
+					{name: 'Loes Keijsers',     position: 'founder', description: this.loremIpsum(), picture: '/src/assets/images/loes.jpg', link: 'https://uvt.nl'},
+					{name: 'Angelique Cramer',  position: 'founder', description: this.loremIpsum(), picture: '/src/assets/images/angelique.jpg', link: 'https://uvt.nl'},
+				],
+				collaborators: [
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
+				]
+			}
+		},
+
+		methods: {
+			loremIpsum() {
+				return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magnam, minima molestiae obcaecati quas quis totam voluptas voluptates? Consequuntur illo magnam natus quae sunt temporibus totam ullam veniam.'
+			},
+
+			loremIpsumShort() {
+				return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.'
+			}
+		}
+	}
+</script>
+
+
+<style lang="scss" scoped>
+	@import "../assets/sass/variables";
+	@import "../assets/sass/mixins";
+
+	#app-people {
+		color: $app-white;
+	}
+
+	#people-1, #people-2 {
+		background-color: $app-bg-primary;
+	}
+
+	.btn-app-color {
+		background-color: $app-organge;
+		color: $app-darkblue;
+		margin: 1rem 0 0 0;
+	}
+
+	.app-section-subtitle {
+		color: $app-lightblue;
+	}
+
+	.tesc-founder {
+		@include material_shadow_md;
+		margin-top: 2rem;
+		padding-top: 1rem;
+		border-radius: 0.5rem;
+	}
+
+	.tesc-collaborator {
+		color: $app-white;
+		text-decoration: none;
+		padding: 1rem 1.5rem;
+		border-radius: 0.5rem;
+		margin-top: 2rem;
+		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	}
+
+	.tesc-collaborator:hover {
+		@include material_shadow_md;
+		
+		h2 {
+			color: $app-organge;
+		}
+	}
+
+	.app-section-title {
+		margin-bottom: 1.5rem;
+	}
+</style>

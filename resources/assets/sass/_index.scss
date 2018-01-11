@@ -1,0 +1,32 @@
+body {
+	padding-top: 62px;
+	background-color: $app-white;
+}
+
+#app {
+	overflow: hidden;
+
+	section {
+		margin-bottom: 1.5rem;
+
+		> .row {
+			padding: 1.5rem 0;
+		}
+	}
+
+	.app-section-title {
+		color: black;
+	}
+
+	#app-contact {
+		margin-bottom: 0;
+	}
+}
+
+.bw { border: 0px solid white; }
+.bk { border: 0px solid black; }
+.bp { border: 0px solid pink; }
+.br { border: 0px solid red; }
+.bg { border: 0px solid green; }
+
+/* DEVELOPMENT */
