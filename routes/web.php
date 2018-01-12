@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+
+	// Test database connection
+	DB::connection()->getPdo();
+
+	
+	return view('index');
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 });
