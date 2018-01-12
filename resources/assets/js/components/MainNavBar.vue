@@ -3,7 +3,7 @@
 
 		<nav class="br navbar navbar-expand-sm fixed-top navbar-light bg-app-navbar">
 			<a class="bg navbar-brand" href="#app-carousel" v-smooth-scroll="{ duration: 500, offset: -61 }">
-				<img src="../assets/images/logo.png" alt="TESC logo" class="img-fluid">
+				<img src="../../images/logo.png" alt="TESC logo" class="img-fluid">
 			</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,8 +105,8 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/sass/variables";
-	@import "../assets/sass/mixins";
+	@import "../../sass/variables";
+	@import "../../sass/mixins";
 
 	.bg-app-navbar {
 		@include material_shadow_md;
@@ -124,7 +124,7 @@
 		font-weight: 500;
 		
 		a {
-			// color: $app-darkblue !important;
+			color: $app-darkblue !important;
 		} 
 	}
 
@@ -155,7 +155,3 @@
 		}
 	}
 </style>
-
-
-
-

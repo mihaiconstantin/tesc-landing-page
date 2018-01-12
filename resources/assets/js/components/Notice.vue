@@ -33,7 +33,7 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/sass/mixins";
+	@import "../../sass/mixins";
 
 	.alert {
 		@include material_shadow_md;

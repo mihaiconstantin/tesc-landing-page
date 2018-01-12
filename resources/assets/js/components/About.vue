@@ -30,7 +30,7 @@
 
 		<div id="about-2" class="br row justify-content-center align-items-center">
 			<div class="bg about-img col-lg-4">
-				<img class="img-fluid" src="../assets/images/section.svg" alt="">
+				<img class="img-fluid" src="../../images/section.svg" alt="">
 			</div>
 
 			<div class="bg col-lg-6 right-enter about-text">
@@ -59,7 +59,7 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/sass/mixins";
+	@import "../../sass/mixins";
 
 	.app-section-title {
 		margin-bottom: 1.5rem;

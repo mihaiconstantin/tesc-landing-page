@@ -1,45 +1,77 @@
 <template>
 	<section id="app-footer">
-		<div id="footer-1" class="br row justify-content-center">
-			<div class="bg col-12 d-flex flex-column justify-content-center align-items-center flex-wrap">
+		
+		<div id="footer-1" class="br row d-flex flex-column justify-content-center align-items-center">
+		
+			<div class="bk footer-logo">
+				<img src="../../images/logo_large.png" alt="TESC logo">
+			</div>
 
-				<div class="bk footer-logo">
-					<img src="../assets/images/logo_large.png" alt="TESC logo">
-				</div>
-
-				<div class=" bk footer-subscribe">
-
-					<form class="bp form-inline">
-						<div class="input-group">
-							<label class="sr-only" for="subscribeInput">Email:</label>
-							<input type="email" class="form-control form-control-sm" id="subscribeInput" required placeholder="example@email.com">
-						</div>
-						<button type="submit" class="btn btn-sm btn-tesc mx-auto ml-sm-2">Subscribe</button>
-						
-						<small id="subscribeInputTerms" class="form-text text-muted">
-							
-						</small>
+			<div class="bk footer-subscribe col-lg-4 col-md-5 col-sm-6 col-9">
+				<div class="bg subscribe-form">
+					<form class="bp d-flex flex-row justify-content-between align-items-center" v-if="subscription.showForm">
+						<label class="sr-only" for="subscribeInput">Email:</label>
+						<input type="email" class="form-control form-control-sm" id="subscribeInput" required placeholder="example@email.com">
+						<button type="submit" class="btn btn-sm btn-tesc ml-2">Subscribe</button>
 					</form>
-					<!-- <div class="subscription-confirmation text-center">&#x2714; We sent you a confirmation message.</div> -->
+					<small id="subscribeInputTerms" class="bp form-text text-muted">By susbcribing to the newsletter you agree with our <a href="#terms" data-toggle="modal" data-target=".terms-modal">Terms and Conditions</a>.</small>
 				</div>
 
-				<div class="bk footer-copyright">
-					<p>Copyright &copy; 2017 Tilburg Experience Sampling Center</p>
-				</div>
+				<div class="subscription-confirmation text-center" v-html="subscription.messageContent" v-if="subscription.showMessage"></div>					
+			</div>
 
+			<div class="bk footer-copyright">
+				<p class="text-muted">Copyright &copy; 2017 <span>Tilburg Experience Sampling Center</span></p>
 			</div>
 		</div>
+	
+		
+		<!-- Terms and Conditions Modal -->
+		
+		<div class="modal fade terms-modal" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<h5 class="modal-title" id="termsModalTitle">Terms and Conditions</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body" v-html="termsHtml"></div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-tesc" data-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
 	</section>
 </template>
 
 
 <script>
-	export default {}
+	export default {
+		data() {
+			return {
+				subscription: {
+					showForm: true,
+					showMessage: false,
+					messageContent: '&#x2714; We sent you a confirmation message.'
+				},
+
+				termsHtml: '<h6>Terms Section 1</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h6>Terms Section 2</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h6>Terms Section 3</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+			}
+		}
+	}
 </script>
 
 
 <style lang="scss" scoped>
-	@import '../assets/sass/variables';
+	@import '../../sass/variables';
 
 	#app-footer {
 		margin-bottom: 0;
@@ -49,7 +81,6 @@
 		background-color: $app-bg-secondary;
 		padding-bottom: 0;
 	}
-
 
 	.btn-tesc {
 		background-color: $app-bg-primary;
@@ -63,26 +94,22 @@
 
 	.footer-subscribe {
 		margin: 1.5rem 0;
-
-		#subscribeInputTerms {
-		}
-	}
-
-	@media (max-width: 575px) {
-		.footer-subscribe {
-			button {
-				margin-top: .5rem;
-			}
-		}
+		text-align: center;
 	}
 
 	.subscription-confirmation {
 		font-size: .8rem;
 	}
 
-	.footer-copyright p {
-		font-size: .8rem;
-		margin-bottom: 0;
-		text-align: center;
+	.footer-copyright {
+		p {
+			font-size: .8rem;
+			margin-bottom: 0;
+			text-align: center;
+		}
+
+		span {
+			color: $app-black;
+		}
 	}
 </style>

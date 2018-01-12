@@ -42,19 +42,23 @@
 
 
 <script>
+	const imgPerson = require('../../images/person.png');
+
 	export default {
 		data() {
 			return {
 				featuredPeople: [
-					{name: 'Loes Keijsers',     position: 'founder', description: this.loremIpsum(), picture: '/src/assets/images/loes.jpg', link: 'https://uvt.nl'},
-					{name: 'Angelique Cramer',  position: 'founder', description: this.loremIpsum(), picture: '/src/assets/images/angelique.jpg', link: 'https://uvt.nl'},
+					{name: 'Founder Name',  position: 'founder', description: this.loremIpsum(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Founder Name',  position: 'founder', description: this.loremIpsum(), picture: imgPerson, link: 'https://uvt.nl'},
 				],
 				collaborators: [
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: '/src/assets/images/person.png', link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
+					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
 				]
 			}
 		},
@@ -73,8 +77,8 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/sass/variables";
-	@import "../assets/sass/mixins";
+	@import "../../sass/variables";
+	@import "../../sass/mixins";
 
 	#app-people {
 		color: $app-white;

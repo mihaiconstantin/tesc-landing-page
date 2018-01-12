@@ -57,7 +57,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../assets/sass/variables';
+    @import '../../sass/variables';
 
     #projects-1 {
         background-color: $app-white;

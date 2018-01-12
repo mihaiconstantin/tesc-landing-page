@@ -1,3 +1,6 @@
+/**
+ * ScrollReveal config.
+ */
 export function ScrollRevealConfig(ScrollRevealImport) {
 	let sr = ScrollRevealImport({
 		reset: false

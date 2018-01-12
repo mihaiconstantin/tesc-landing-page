@@ -95,7 +95,7 @@
 
 
 <style lang="scss" scoped>
-	@import '../assets/sass/variables';
+	@import '../../sass/variables';
 
 	#app-contact {
 		position: relative;
