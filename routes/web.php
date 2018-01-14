@@ -12,11 +12,6 @@
 */
 
 Route::get('/', function () {
-
-	// Test database connection
-	DB::connection()->getPdo();
-
-	
 	return view('index');
 });
 
