@@ -19,7 +19,7 @@ class PeopleSectionsTableSeeder extends Seeder
 		DB::table('people_sections')->insert([
 			[
 				'name'			=> 'First Founder',
-				'description'	=> 'First Founder Description',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magnam, minima molestiae obcaecati quas quis totam voluptas voluptates? Consequuntur illo magnam natus quae sunt temporibus totam ullam veniam.',
 				'link'			=> 'https://www.uvt.nl',
 				'email'			=> 'founder1@email.com',
 				'image' 		=> '/images/person.png',
@@ -29,7 +29,7 @@ class PeopleSectionsTableSeeder extends Seeder
 			],
 			[
 				'name'			=> 'Second Founder',
-				'description'	=> 'Second Founder Description',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magnam, minima molestiae obcaecati quas quis totam voluptas voluptates? Consequuntur illo magnam natus quae sunt temporibus totam ullam veniam.',
 				'link'			=> 'https://www.uvt.nl',
 				'email'			=> 'founder2@email.com',
 				'image' 		=> '/images/person.png',
@@ -43,52 +43,72 @@ class PeopleSectionsTableSeeder extends Seeder
 		DB::table('people_sections')->insert([
 			[
 				'name'			=> 'Employee 1',
-				'description'	=> 'Employee 1 Description',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
 				'link'			=> 'https://www.uvt.nl',
 				'email'			=> 'employee1@email.com',
-				'image' 		=> '/images/person.png',
-				'role' 			=> 'employee',
-				'order' 		=> 1,
-				'created_at' 	=> Carbon::now()
-			],
-			[
-				'name'			=> 'Employee 2',
-				'description'	=> 'Employee 2 Description',
-				'link'			=> 'https://www.uvt.nl',
-				'email'			=> 'employee2@email.com',
-				'image' 		=> '/images/person.png',
-				'role' 			=> 'employee',
-				'order' 		=> 2,
-				'created_at' 	=> Carbon::now()
-			],
-			[
-				'name'			=> 'Employee 3',
-				'description'	=> 'Employee 3 Description',
-				'link'			=> 'https://www.uvt.nl',
-				'email'			=> 'employee3@email.com',
 				'image' 		=> '/images/person.png',
 				'role' 			=> 'employee',
 				'order' 		=> 3,
 				'created_at' 	=> Carbon::now()
 			],
 			[
-				'name'			=> 'Employee 4',
-				'description'	=> 'Employee 4 Description',
+				'name'			=> 'Employee 2',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
 				'link'			=> 'https://www.uvt.nl',
-				'email'			=> 'employee4@email.com',
+				'email'			=> 'employee2@email.com',
 				'image' 		=> '/images/person.png',
 				'role' 			=> 'employee',
 				'order' 		=> 4,
 				'created_at' 	=> Carbon::now()
 			],
 			[
+				'name'			=> 'Employee 3',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+				'link'			=> 'https://www.uvt.nl',
+				'email'			=> 'employee3@email.com',
+				'image' 		=> '/images/person.png',
+				'role' 			=> 'employee',
+				'order' 		=> 5,
+				'created_at' 	=> Carbon::now()
+			],
+			[
+				'name'			=> 'Employee 4',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+				'link'			=> 'https://www.uvt.nl',
+				'email'			=> 'employee4@email.com',
+				'image' 		=> '/images/person.png',
+				'role' 			=> 'employee',
+				'order' 		=> 6,
+				'created_at' 	=> Carbon::now()
+			],
+			[
 				'name'			=> 'Employee 5',
-				'description'	=> 'Employee 5 Description',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
 				'link'			=> 'https://www.uvt.nl',
 				'email'			=> 'employee5@email.com',
 				'image' 		=> '/images/person.png',
 				'role' 			=> 'employee',
-				'order' 		=> 5,
+				'order' 		=> 7,
+				'created_at' 	=> Carbon::now()
+			],
+			[
+				'name'			=> 'Employee 6',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+				'link'			=> 'https://www.uvt.nl',
+				'email'			=> 'employee6@email.com',
+				'image' 		=> '/images/person.png',
+				'role' 			=> 'employee',
+				'order' 		=> 8,
+				'created_at' 	=> Carbon::now()
+			],
+			[
+				'name'			=> 'Employee 7',
+				'description'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+				'link'			=> 'https://www.uvt.nl',
+				'email'			=> 'employee7@email.com',
+				'image' 		=> '/images/person.png',
+				'role' 			=> 'employee',
+				'order' 		=> 9,
 				'created_at' 	=> Carbon::now()
 			],
 		]);

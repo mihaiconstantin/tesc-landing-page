@@ -19,7 +19,7 @@ class ProjectSectionsTableSeeder extends Seeder
         DB::table('project_sections')->insert([
         	[
         		'title' 	=> 'Featured 1',
-				'content' 	=> 'Featured 1 Content',
+				'content' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eos labore officiis repellat sapiente veniam voluptatem? Consectetur dicta eveniet ipsa magnam maxime! Atque dignissimos, earum ipsa laboriosam quibusdam ratione sed?',
 				'link' 		=> 'https://uvt.nl',
 				'featured' 	=> 1,
 				'display' 	=> 1,
@@ -27,7 +27,7 @@ class ProjectSectionsTableSeeder extends Seeder
 			],
 			[
 				'title' 	=> 'Featured 2',
-				'content' 	=> 'Featured 2 Content',
+				'content' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eos labore officiis repellat sapiente veniam voluptatem? Consectetur dicta eveniet ipsa magnam maxime! Atque dignissimos, earum ipsa laboriosam quibusdam ratione sed?',
 				'link' 		=> 'https://uvt.nl',
 				'featured' 	=> 1,
 				'display' 	=> 1,
@@ -39,27 +39,27 @@ class ProjectSectionsTableSeeder extends Seeder
 		DB::table('project_sections')->insert([
 			[
 				'title' 	=> 'Regular 1',
-				'content' 	=> 'Regular 1 Content',
-				'link' 		=> 'https://uvt.nl',
-				'featured' 	=> 0,
-				'display' 	=> 1,
-				'order' 	=> 1
-			],
-			[
-				'title' 	=> 'Regular 2',
-				'content' 	=> 'Regular 2 Content',
-				'link' 		=> 'https://uvt.nl',
-				'featured' 	=> 0,
-				'display' 	=> 1,
-				'order' 	=> 2
-			],
-			[
-				'title' 	=> 'Regular 3',
-				'content' 	=> 'Regular 3 Content',
+				'content' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eos labore officiis repellat sapiente veniam voluptatem? Consectetur dicta eveniet ipsa magnam maxime! Atque dignissimos, earum ipsa laboriosam quibusdam ratione sed?',
 				'link' 		=> 'https://uvt.nl',
 				'featured' 	=> 0,
 				'display' 	=> 1,
 				'order' 	=> 3
+			],
+			[
+				'title' 	=> 'Regular 2',
+				'content' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eos labore officiis repellat sapiente veniam voluptatem? Consectetur dicta eveniet ipsa magnam maxime! Atque dignissimos, earum ipsa laboriosam quibusdam ratione sed?',
+				'link' 		=> 'https://uvt.nl',
+				'featured' 	=> 0,
+				'display' 	=> 1,
+				'order' 	=> 4
+			],
+			[
+				'title' 	=> 'Regular 3',
+				'content' 	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eos labore officiis repellat sapiente veniam voluptatem? Consectetur dicta eveniet ipsa magnam maxime! Atque dignissimos, earum ipsa laboriosam quibusdam ratione sed?',
+				'link' 		=> 'https://uvt.nl',
+				'featured' 	=> 0,
+				'display' 	=> 1,
+				'order' 	=> 5
 			]
         ]);
     }
