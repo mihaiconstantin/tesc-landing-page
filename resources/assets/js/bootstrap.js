@@ -9,14 +9,11 @@ window._ = require('lodash');
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
-    window.ScrollReveal = require('scrollreveal');
-    window.VueSmoothScroll = require('vue-smooth-scroll');
-    
-    // require('bootstrap-sass');
-    require('bootstrap');
+	window.$ = window.jQuery = require('jquery');
+	window.ScrollReveal = require('scrollreveal');
+	require('bootstrap');
 } catch (e) {
-	console.log(`Error loading libraries: ${e}`);
+	console.log(`Error loading libraries in Laravel "boostrap.js": ${e}`);
 }
 
 /**
@@ -38,9 +35,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+	window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+	console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**

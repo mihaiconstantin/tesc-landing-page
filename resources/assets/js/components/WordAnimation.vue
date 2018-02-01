@@ -1,10 +1,11 @@
 <template>
  	<div id="app-loading" class="br row">
+ 		
  		<div class="bk words display-4 mx-auto">
- 			<div class="bk base-word">Tilburg</div>
-			<span class="bk word d-flex justify-content-center" v-for="setting in settings" v-html="setting.lettersHTML" :id="setting.id" :style="{ color: setting.color, opacity: setting.opacity }"></span> 
-			</span> 
+ 			<div class="bk base-word">{{ baseWord }}</div>
+			<span class="bk word d-flex justify-content-center" v-for="setting in settings" v-html="setting.lettersHTML" :id="setting.id" :style="{ color: setting.color, opacity: setting.opacity }"></span>
  		</div>
+
  	</div>
 </template>
 
@@ -18,7 +19,9 @@
 					{ word: 'Sampling', 	id: 1, lettersArray: null, lettersHTML: null,  color: '#FFC107', opacity: 0 },
 					{ word: 'Center', 		id: 2, lettersArray: null, lettersHTML: null,  color: '#FFC107', opacity: 0 }
 				],
-				currentWord: 0
+				baseWord: 'Tilburg',
+				currentWord: 0,
+				changeWordintervalId: null
 			}
 		},
 
@@ -27,7 +30,18 @@
 		},
 
 		mounted() {
-			setInterval(this.changeWord, 1500);
+			setTimeout(() => { this.changeWord(); }, 400);
+			this.changeWordintervalId = setInterval(this.changeWord, 1300);
+		},
+
+		beforeDestroy() {
+			clearInterval(this.changeWordintervalId);
+		},
+
+		computed: {
+			cycleCount() {
+				return this.$store.state.wordAnimation.cycleCount;	
+			}
 		},
 
 		methods: {
@@ -45,8 +59,18 @@
 
 			changeWord() {
 				let currentWord = document.getElementById(this.currentWord).getElementsByTagName('span');
-				let nextWord = (this.currentWord == this.settings.length - 1) ? document.getElementById(0).getElementsByTagName('span') : document.getElementById(this.currentWord + 1).getElementsByTagName('span');
-				this.currentWord = (this.currentWord == this.settings.length - 1) ? 0 : this.currentWord + 1;
+				
+				if (this.currentWord == this.settings.length - 1) {
+					var nextWord = document.getElementById(0).getElementsByTagName('span');			
+					this.currentWord = 0;
+					// Tell Vuex that an animation cycle has been completed.
+					this.$store.dispatch('incrementAnimationCycle');
+
+				} else {
+					var nextWord = document.getElementById(this.currentWord + 1).getElementsByTagName('span')
+					this.currentWord = this.currentWord + 1;
+				}
+
 
 				// Animate the letters in the current word.
 				for (let letterIndex = 0; letterIndex < currentWord.length; letterIndex++) {

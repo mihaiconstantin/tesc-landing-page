@@ -2,10 +2,10 @@
 	<div id="app-notice">
 
 		<div :class="alertType" class="alert alert-dismissible fade show" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<button @click='resetAlert' type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			{{ message }}
+			{{ noticeMessage }}
 		</div>
 
 	</div>
@@ -15,17 +15,19 @@
 <script>
 	export default {
 		props: [
-			'message',
-			'error'
+			'noticeMessage',
+			'noticeSuccess'
 		],
 
 		computed: {
 			alertType() {
-				if (this.error) {
-					return 'alert-danger'
-				} else {
-					return 'alert-success';
-				}
+				return this.noticeSuccess ? 'alert-success' : 'alert-danger';
+			}
+		},
+
+		methods: {
+			resetAlert() {
+				this.$emit('resetAlert');		
 			}
 		}
 	}

@@ -12,10 +12,10 @@
 
 			<div class="bg col-11">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap top-enter">
-					<div v-for="person in featuredPeople" class="bp col-md-5 text-center tesc-founder">
-						<img :src="person.picture" :alt="person.name" class="rounded-circle" width="140" height="140">
+					<div v-for="person in items" v-if="person.role == 'founder'" class="bp col-md-5 text-center tesc-founder">
+						<img :src="person.image" :alt="person.name" class="rounded-circle" width="140" height="140">
 						<h2>{{ person.name }}</h2>
-						<p>{{person.description}}<br><a :href="person.link" class="btn btn-app-color" role="button">Read more&raquo;</a></p>
+						<p>{{ person.description }}<br><a :href="person.link" class="btn btn-app-color" role="button">Read more&raquo;</a></p>
 					</div>
 				</div>
 			</div>
@@ -28,8 +28,8 @@
 
 			<div class="bg col-11">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap bottom-enter">
-					<a v-for="person in collaborators" :href="person.link" class="bp col-md-3 text-center tesc-collaborator">
-						<img :src="person.picture" :alt="person.name" class="rounded-circle" width="140" height="140">
+					<a v-for="person in items" v-if="person.role == 'employee'" :href="person.link" class="bp col-md-3 text-center tesc-collaborator">
+						<img :src="person.image" :alt="person.name" class="rounded-circle" width="140" height="140">
 						<h2>{{ person.name }}</h2>
 						<p>{{ person.description }}</p>
 					</a>
@@ -42,34 +42,10 @@
 
 
 <script>
-	const imgPerson = require('../../images/person.png');
-
 	export default {
-		data() {
-			return {
-				featuredPeople: [
-					{name: 'Founder Name',  position: 'founder', description: this.loremIpsum(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Founder Name',  position: 'founder', description: this.loremIpsum(), picture: imgPerson, link: 'https://uvt.nl'},
-				],
-				collaborators: [
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-					{name: 'Full Name', position: 'collaborator', description: this.loremIpsumShort(), picture: imgPerson, link: 'https://uvt.nl'},
-				]
-			}
-		},
-
-		methods: {
-			loremIpsum() {
-				return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magnam, minima molestiae obcaecati quas quis totam voluptas voluptates? Consequuntur illo magnam natus quae sunt temporibus totam ullam veniam.'
-			},
-
-			loremIpsumShort() {
-				return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.'
+		computed: {
+			items() {
+				return this.$store.state.initialization.sectionPeople;
 			}
 		}
 	}

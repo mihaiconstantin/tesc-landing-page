@@ -5,47 +5,14 @@
 			<h1 class="display-2">About</h1>
 		</div>
 
-		<div id="about-1" class="br row justify-content-center align-items-center">
-			<div class="bg col-lg-10 left-enter about-text">
-				<h2 class="display-4">
-					Praesent commodo.<br><span class="text-muted">Praesent auctor fringilla.</span>
-				</h2>
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					<br><br>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-			</div>
-		</div>
-
-		<div id="about-2" class="br row justify-content-center align-items-center">
-			<div class="bg about-img col-lg-4">
-				<img class="img-fluid" src="../../images/section.svg" alt="">
+		<div v-for="item in items" class="br row justify-content-center align-items-center">
+			<div v-if="notNull(item.image)" class="bg about-img col-lg-4" :class="[ item.image_position === 'right' ? 'order-2 top-offset' : 'bottom-offset' ]">
+				<img class="bp img-fluid" :src="item.image" :alt="item.image_alt">
 			</div>
 
-			<div class="bg col-lg-6 right-enter about-text">
-				<h2 class="display-4">
-					Praesent commodo.<br><span class="text-muted">Praesent auctor fringilla.</span>
-				</h2>
-				<p class="lead">
-					Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-					<br>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur.
-				</p>
+			<div class="bg about-text" :class="[ notNull(item.image) ? 'col-lg-6' : 'col-lg-10', item.fade_direction + '-enter' ]">
+				<h2 class="display-4">{{ item.title }}<br><span class="text-muted">{{ item.subtitle }}</span></h2>
+				<p class="lead" v-html="item.content"></p>
 			</div>
 		</div>
 
@@ -54,7 +21,26 @@
 
 
 <script>
-	export default {}
+	// import { mapActions } from 'vuex';
+
+	export default {
+		computed: {
+			items() {
+				return this.$store.state.initialization.sectionAbout;
+			}
+		},
+
+		methods: {
+			// ...mapActions(['fetchData']),
+			notNull(value) {
+				return value === null ? false : true;
+			}
+		},
+
+		mounted() {
+			// this.fetchData({ section: 'sectionAbout', api: 'about' });
+		}
+	}
 </script>
 
 
@@ -72,17 +58,18 @@
 	}
 
 	.about-img {
-		padding-left: 0;
+		text-align: center;
 	}
 
 	@media (max-width: 991px) { 
-		#about-2 .about-img {
-			text-align: center;
-			padding: 0 15px;
-			margin-bottom: 48px;
+		.top-offset {
+			margin-top: 3rem;
+		}
+
+		.bottom-offset {
+			margin-bottom: 3rem;
 		}
 	}
-
 
 	.about-text {
 		.lead {
@@ -93,5 +80,253 @@
 			font-size: 3.3rem;	
 		}
 	}
-
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

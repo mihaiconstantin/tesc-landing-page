@@ -9,13 +9,13 @@
             <div class="bg col-11">
                 <div class="bk d-flex flex-row align-items-center justify-content-md-around flex-wrap">
                     
-                    <div v-for="project in projects" :class="isFeatured(project.type)" class="bp top-enter">
+                    <div v-for="project in items" :class="isFeatured(project.featured)" class="bp top-enter">
                         <div class="card">
-                            <div v-if="project.type" class="card-header">Featured</div>
+                            <div v-if="project.featured == 1" class="card-header">Featured</div>
                             <div class="card-body">
                                 <h4 class="card-title">{{ project.title }}</h4>
-                                <p class="card-text">{{ project.description }}</p>
-                                <a :href="project.link" class="btn btn-tesc">Find out more &raquo;</a>
+                                <p class="card-text">{{ project.content }}</p>
+                                <a :href="prepareLink(project.link)" class="btn btn-tesc" target="_blank">Find out more &raquo;</a>
                             </div>
                         </div>
                     </div>
@@ -30,31 +30,25 @@
 
 <script>
     export default {
-        data() {
-            return {
-                projects: [
-                    {title: 'Project title', description: this.loremIpsum(), link: 'https://uvt.nl', type: true},
-                    {title: 'Project title', description: this.loremIpsum(), link: 'https://uvt.nl', type: true},
-                    {title: 'Project title', description: this.loremIpsum(), link: 'https://uvt.nl', type: false},
-                    {title: 'Project title', description: this.loremIpsum(), link: 'https://uvt.nl', type: false},
-                    {title: 'Project title', description: this.loremIpsum(), link: 'https://uvt.nl', type: false}
-                ]
+        computed: {
+            items() {
+                return this.$store.state.initialization.sectionProject;
             }
         },
 
+
         methods: {
-            loremIpsum() {
-                return 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eos labore officiis repellat sapiente veniam voluptatem? Consectetur dicta eveniet ipsa magnam maxime! Atque dignissimos, earum ipsa laboriosam quibusdam ratione sed?';
+            isFeatured(featured) {
+                return featured == 1 ? 'col-md-6' : 'col-md-4';
             },
 
-            isFeatured(projectType) {
-                return projectType ? 'col-md-6' : 'col-md-4';
-            }
+            prepareLink(slug) {
+                return `/project/${slug}`;
+            }            
         }
-
-
     }
 </script>
+
 
 <style lang="scss" scoped>
     @import '../../sass/variables';

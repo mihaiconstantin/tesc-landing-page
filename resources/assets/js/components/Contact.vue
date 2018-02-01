@@ -12,45 +12,49 @@
 
 			<div class="bg col-11">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap">
+					
 					<div id="contact-form" class="bp col-md-6 left-enter">
-						<form>
+						<form v-on:submit.prevent="sendMessage">
 							<div class="form-group">
 								<label for="email">Your email address:</label>
-								<input type="email" class="form-control" required id="email" placeholder="name@example.com">
+								<input v-model.lazy.trim="contactFrom" type="email" class="form-control" id="email" placeholder="name@example.com" required>
 							</div>
 
 							<div class="form-group">
-								<label for="desiredContact">Looking for:</label>
-								<select class="form-control" id="desiredContact" v-model="desiredContact" required>
+								<label for="contactTo">Looking for:</label>
+								<select v-model="contactTo" class="form-control" id="contactTo" required>
 									<option value="" selected disabled>Please select</option>
-									<option v-for="contact in tescContacts" :value="contact.value">{{ contact.name }}</option>
+									<option v-for="person in items" :value="person">{{ person }}</option>
 								</select>
 							</div>
 
-							<div v-if="desiredContact === 'other'" class="form-group">
+							<div v-if="contactTo === 'other'" class="form-group">
 								<label for="specificContact">Type in the name:</label>
-								<input id="specificContact" class="form-control" type="text" required placeholder="Type the name for the person you want to contact...">
+								<input v-model.lazy.trim="contactOther" id="specificContact" class="form-control" type="text" placeholder="Type the name for the person you want to contact..." required>
 							</div>
 
 							<div class="form-group">
 								<label for="message">Your message:</label>
-								<textarea class="form-control" id="message" required rows="3">Type in your message...</textarea>
+								<textarea v-model.trim="contactMessage" class="form-control" id="message" rows="3" placeholder="Type in your message..." required></textarea>
 							</div>
+							
+							<app-recaptcha @recaptchaResponse="updateRecaptchaResponse"></app-recaptcha>
 
-							<button type="submit" class="btn btn-tesc">Get in touch</button>
+							<button :disabled="buttonDisabled" type="submit" class="btn btn-tesc">{{ buttonMessage }}</button>
 						</form>
 					</div>
 					
 					<div id="contact-social" class="bp col-md-5 text-center">
 						<a class="twitter-timeline" data-width="" data-height="450" href="https://twitter.com/TilburgU_TESC?ref_src=twsrc%5Etfw">Tweets by TilburgU_TESC</a>
 					</div>
+
 				</div>
 			</div>
 
 		</div>
 
-		<div id="contact-notice" class="bg">
-			<app-notice :message="message" :error="error"></app-notice>
+		<div v-if="noticeShow" id="contact-notice" class="bg">
+			<app-notice :noticeMessage="noticeMessage" :noticeSuccess="noticeSuccess" @resetAlert="resetNoticeShow"></app-notice>
 		</div>
 
 	</section>
@@ -59,35 +63,97 @@
 
 <script>
 	import Notice from './Notice.vue';
+	import Recaptcha from './Recaptcha.vue';
 
 	export default {
 		components: {
-			'app-notice': Notice
-		},
+			'app-notice': Notice,
+			'app-recaptcha': Recaptcha
+		}, 
+
 
 		data() {
 			return {
-				infoMessage: 'Your message is on its way. You will hear from us soon.',
-				errorMessage: 'There was a problem sending your message. Pease try again.',
-				error: false,
-
-				tescContacts: [
-					{name: 'Loes Keijsers',     email: 'person@email.com', value: 'loes'},
-					{name: 'Angelique Cramer',  email: 'person@email.com', value: 'angelique'},
-					{name: 'other TESC member', email: 'person@email.com', value: 'other'}
-				],
-
-				desiredContact: ''
+				noticeShow: false,
+				noticeSuccess: false,
+				textSuccess: 'Your message is on its way. You will hear from us soon.',
+				textError: 'There was a problem sending your message. Pease try again later.',
+				
+				buttonMessage: 'Send message!',
+				
+				contactFrom: '',
+				contactTo: '',
+				contactOther: '',
+				contactMessage: '',
+				contactRecaptcha: false
 			}
 		},
 
+
 		computed: {
-			message() {
-				if (this.error) {
-					return this.errorMessage;
-				} else {
-					return this.infoMessage;
-				}
+			items() {
+				return this.$store.state.initialization.sectionContact;
+			},
+
+			noticeMessage() {
+				return this.noticeSuccess ? this.textSuccess : this.textError;
+			},
+
+			buttonDisabled() {
+				return this.contactRecaptcha ? false : true;
+			}
+		},
+
+
+		watch: {
+			contactTo() {
+				if (this.contactTo != 'other') { this.contactOther = ''; }
+			}
+		},
+
+
+		methods: {
+			sendMessage() {
+				// Prepare the request data.
+				let requestData = {
+					from: this.contactFrom,
+					to: this.contactTo == 'other' ? this.contactOther : this.contactTo,
+					content: this.contactMessage,
+					recaptcha: this.contactRecaptcha
+				} 
+
+				// Disable the submit button and change the text.
+				this.contactRecaptcha = false;
+				this.buttonMessage = 'Sending your message...';
+
+				// Send the Axios request. At the end update the status the notice based on server response. 
+				axios.post('/api/message', requestData)
+					 .then((response) => {
+					 	if (response.status === 200 && response.data === 'ok') {
+		 					this.buttonMessage = 'Message sent!';
+							this.noticeSuccess = true;
+					 	} else {
+						 	this.buttonMessage = 'Message not sent!';
+							this.noticeSuccess = false;
+					 	}
+						this.noticeShow = true;
+					 })
+					 .catch((error) => {
+					 	console.log(`An error occured: ${error}.`);
+					 	this.buttonMessage = 'Message not sent!';
+						this.noticeSuccess = false;
+						this.noticeShow = true;
+					 });
+			},
+
+
+			resetNoticeShow() {
+				setTimeout(() => { this.noticeShow = false; }, 500);
+			},
+
+
+			updateRecaptchaResponse(response) {
+				this.contactRecaptcha = response;
 			}
 		}
 	}
@@ -113,8 +179,8 @@
 
 	#contact-notice {
 		position: absolute;
-		top: 2rem;
-		right: 0;
+		bottom: .5rem;
+		right: .5rem;
 	}
 
 	.btn-tesc {
@@ -140,7 +206,9 @@
 
 	@media (max-width: 767px) {
 		#contact-notice {
-			top: 4.5rem;
+			bottom: .5rem;
+			left: 0;
+			right: 0;
 			width: 100%;
 		}
 	}

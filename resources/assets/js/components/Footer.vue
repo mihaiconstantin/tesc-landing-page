@@ -8,24 +8,24 @@
 			</div>
 
 			<div class="bk footer-subscribe col-lg-4 col-md-5 col-sm-6 col-9">
-				<div class="bg subscribe-form">
-					<form class="bp d-flex flex-row justify-content-between align-items-center" v-if="subscription.showForm">
+				
+				<div  v-if="ui.showForm" class="bg subscribe-form">
+					<form v-on:submit.prevent="subscribe" class="bp d-flex flex-row justify-content-between align-items-center">
 						<label class="sr-only" for="subscribeInput">Email:</label>
-						<input type="email" class="form-control form-control-sm" id="subscribeInput" required placeholder="example@email.com">
-						<button type="submit" class="btn btn-sm btn-tesc ml-2">Subscribe</button>
+						<input v-model="subscriberEmail" type="email" class="form-control form-control-sm" id="subscribeInput" required placeholder="example@email.com">
+						<button :disabled="!ui.buttonOn" type="submit" class="btn btn-sm btn-tesc ml-2">{{ ui.buttonText }}</button>
 					</form>
 					<small id="subscribeInputTerms" class="bp form-text text-muted">By susbcribing to the newsletter you agree with our <a href="#terms" data-toggle="modal" data-target=".terms-modal">Terms and Conditions</a>.</small>
 				</div>
 
-				<div class="subscription-confirmation text-center" v-html="subscription.messageContent" v-if="subscription.showMessage"></div>					
+				<div class="subscription-confirmation text-center" v-if="ui.showMessage"  v-html="statusMessage"></div>					
 			</div>
 
 			<div class="bk footer-copyright">
 				<p class="text-muted">Copyright &copy; 2017 <span>Tilburg Experience Sampling Center</span></p>
 			</div>
 		</div>
-	
-		
+			
 		<!-- Terms and Conditions Modal -->
 		
 		<div class="modal fade terms-modal" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
@@ -57,13 +57,47 @@
 	export default {
 		data() {
 			return {
-				subscription: {
+				ui: {
 					showForm: true,
 					showMessage: false,
-					messageContent: '&#x2714; We sent you a confirmation message.'
+					successText: '&#x2714; We sent you a confirmation message.',
+					errorText: '&#x274C; We could not add you. Please try again later.',
+					status: true,
+					buttonOn: true,
+					buttonText: 'Keep me informed!',
 				},
-
+				subscriberEmail: '',
 				termsHtml: '<h6>Terms Section 1</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h6>Terms Section 2</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h6>Terms Section 3</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+			}
+		},
+
+
+		computed: {
+			statusMessage() { return this.ui.status ? this.ui.successText : this.ui.errorText; }
+		},
+
+
+		methods: {
+			subscribe() {
+				// Disable the submit button.
+				this.ui.buttonOn = false;
+				this.ui.buttonText = 'Adding...';
+
+				// Send the Axios request.
+				axios.post('/api/subscription', { email: this.subscriberEmail })
+					 .then((response) => {
+					 	if (response.status != 200 || response.data != 'ok') {
+					 		this.ui.status = false;
+					 	}
+					 	this.ui.showForm = false;
+					 	this.ui.showMessage = true;
+					 })
+					 .catch((error) => {
+					 	console.log(`An error occured: ${error}.`);
+				 		this.ui.status = false;
+					 	this.ui.showForm = false;
+					 	this.ui.showMessage = true;
+					 });
 			}
 		}
 	}
