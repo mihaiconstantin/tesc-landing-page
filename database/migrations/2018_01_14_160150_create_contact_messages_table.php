@@ -16,8 +16,11 @@ class CreateContactMessagesTable extends Migration
         Schema::create('contact_messages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('from');
-            $table->text('message');
+            $table->text('content');
             $table->string('to');
+            $table->string('inbox');
+            $table->string('cc');
+            $table->boolean('sent')->default(0);
             $table->timestamps();
         });
     }

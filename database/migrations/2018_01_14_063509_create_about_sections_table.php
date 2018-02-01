@@ -18,7 +18,10 @@ class CreateAboutSectionsTable extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('content');
+            $table->enum('fade_direction', ['left', 'right', 'top', 'bottom'])->nullable();
             $table->string('image')->nullable();
+            $table->string('image_alt')->nullable();
+            $table->enum('image_position', ['left', 'right'])->nullable();
             $table->boolean('display')->default(1);
             $table->tinyInteger('order');
             $table->timestamps();
