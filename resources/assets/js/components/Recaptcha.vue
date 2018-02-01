@@ -23,7 +23,7 @@
 
 		methods: {
 			render() {
-				this.test = grecaptcha.render(this.placeholderId, {
+				this.widgetId = grecaptcha.render(this.placeholderId, {
 					sitekey: this.sitekey,
 					callback: (response) => {
 						this.$emit('recaptchaResponse', response);
