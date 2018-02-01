@@ -1,3 +1,6 @@
+@import '../bootstrap';
+
+
 body {
 	padding-top: 62px;
 	background-color: $app-white;
@@ -22,11 +25,3 @@ body {
 		margin-bottom: 0;
 	}
 }
-
-.bw { border: 0px solid white; }
-.bk { border: 0px solid black; }
-.bp { border: 0px solid pink; }
-.br { border: 0px solid red; }
-.bg { border: 0px solid green; }
-
-/* DEVELOPMENT */

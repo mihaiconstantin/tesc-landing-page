@@ -1,0 +1,105 @@
+@import '../bootstrap';
+
+body {
+	padding-top: 1rem;
+}
+
+#project {
+	position: relative;
+
+	.logo {
+		margin: 0 auto 1rem auto;
+	}
+	
+	header, .project-content {
+		margin-bottom: 1.5rem;
+	}
+
+	article {
+		@include material_shadow_md;
+		margin: 0 auto 1rem auto;
+		padding: 1.5rem;
+		position: relative;
+	}
+
+	header {
+		.project-title, .project-pubdate {
+			margin-bottom: 1rem;
+		}
+
+		.project-author, .project-featured-image {
+			margin-bottom: 0;
+		}
+
+		.project-pubdate {
+			display: block;
+		}
+
+		.project-author {
+			span {
+				color: $app-darkblue;
+			}
+		}
+	}
+
+	.project-content {
+		p, h1, h2, h3, h4, h5, h6 {
+			color: #212529 !important;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;			
+		}
+	} 
+
+	.footer-copyright {
+		p {
+			font-size: .8rem;
+			margin-bottom: 0;
+			text-align: center;
+		}
+
+		a {
+			color: $app-black;
+			text-decoration: none;
+		}
+	}
+
+	.project-share {
+		margin-bottom: .5rem;
+
+		img {
+			width: 30px;
+			filter: grayscale(80%);
+			transition: all .5s;
+
+			&:hover {
+				filter: grayscale(0%);
+				transform:rotate(360deg);
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

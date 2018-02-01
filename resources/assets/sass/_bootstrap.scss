@@ -1,0 +1,14 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Variables
+@import "variables";
+
+// Mixins
+@import "mixins";
+
+// Agnostic styles (i.e., elements that can be reused everywhere)
+@import "agnostic";
+
+// Development styles
+// @import "development";

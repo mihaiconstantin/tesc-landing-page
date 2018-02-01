@@ -1,0 +1,70 @@
+@import "variables";
+/* 
+ * Post-it pin and positions.
+ * Source: https://codepen.io/joshnh/pen/shHbJ
+ */
+
+.pin {
+	background-color: #aaa;
+	background-image: linear-gradient(left, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+	display: block;
+	height: 2em;
+	margin: -1em -.05em;
+	position: absolute;
+	width: .1em;
+
+	&:after {
+		background-color: $app-organge;
+		background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
+					inset .2em .2em .2em hsla(0,0%,100%,.2),
+					inset -.2em -.2em .2em hsla(0,0%,0%,.2),
+					1.5em 1.25em .25em hsla(0,0%,0%,.15);
+		content: '';
+		height: .8em;
+		left: -.35em;
+		position: absolute;
+		top: -.65em;
+		width: .8em;
+	}
+
+	&:before {
+		background-color: hsla(0,0%,0%,.1);
+		box-shadow: 0 0 .25em hsla(0,0%,0%,.1);
+		content: '';
+		height: 1.5em;
+		left: 0;
+		position: absolute;
+		top: .5em;
+		transform: rotate(57.5deg);
+		transform-origin: 50% 100%;
+		width: .1em;
+	}
+}
+
+.pin-top-left {
+	top: .5rem;
+	left: 1.3rem;
+	transform: rotate(-10deg);
+}
+
+.pin-top-right {
+	top: .5rem;
+	right: 1.3rem;
+	transform: rotate(10deg);
+}
+
+.pin-bottom-left {
+	bottom: .5rem;
+	left: 1.3rem;
+	transform: rotate(-160deg);
+}
+
+.pin-bottom-right {
+	bottom: .5rem;
+	right: 1.3rem;
+	transform: rotate(160deg);
+}
+
+
