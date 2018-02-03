@@ -41,6 +41,12 @@ Route::post('api/subscription', 'ApiController@storeSubscription')->name('subscr
 Route::get('project/{slug}', 'ProjectController@show');
 
 
+/*
+ * Routes for the project pages.
+ */
+Route::get('blog/', 'BlogController@index')->name('blog.home');
+Route::get('blog/post/{slug}', 'BlogController@post')->name('blog.post');
+
 
 /*
  * Voyager admin routes.
