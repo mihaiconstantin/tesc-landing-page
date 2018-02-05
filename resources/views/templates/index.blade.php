@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- SEO meta tags -->
+	<meta name="description" content="{{ setting('site.description') }}">
+	<meta name="keywords" content="{{ setting('site.keywords') }}">
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +13,7 @@
     <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon">
     @include('partials._styles_index')
 
-    <title>TESC</title>
+    <title>{{ setting('site.title') }}</title>
 </head>
 
 <body>

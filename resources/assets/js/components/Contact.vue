@@ -12,7 +12,7 @@
 
 			<div class="bg col-11">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap">
-					
+
 					<div id="contact-form" class="bp col-md-6 left-enter">
 						<form v-on:submit.prevent="sendMessage">
 							<div class="form-group">
@@ -37,13 +37,13 @@
 								<label for="message">Your message:</label>
 								<textarea v-model.trim="contactMessage" class="form-control" id="message" rows="3" placeholder="Type in your message..." required></textarea>
 							</div>
-							
+
 							<app-recaptcha @recaptchaResponse="updateRecaptchaResponse"></app-recaptcha>
 
 							<button :disabled="buttonDisabled" type="submit" class="btn btn-tesc">{{ buttonMessage }}</button>
 						</form>
 					</div>
-					
+
 					<div id="contact-social" class="bp col-md-5 text-center">
 						<a class="twitter-timeline" data-width="" data-height="450" href="https://twitter.com/TilburgU_TESC?ref_src=twsrc%5Etfw">Tweets by TilburgU_TESC</a>
 					</div>
@@ -69,7 +69,7 @@
 		components: {
 			'app-notice': Notice,
 			'app-recaptcha': Recaptcha
-		}, 
+		},
 
 
 		data() {
@@ -78,9 +78,9 @@
 				noticeSuccess: false,
 				textSuccess: 'Your message is on its way. You will hear from us soon.',
 				textError: 'There was a problem sending your message. Pease try again later.',
-				
+
 				buttonMessage: 'Send message!',
-				
+
 				contactFrom: '',
 				contactTo: '',
 				contactOther: '',
@@ -100,7 +100,8 @@
 			},
 
 			buttonDisabled() {
-				return this.contactRecaptcha ? false : true;
+				// return this.contactRecaptcha ? false : true;
+				return false;
 			}
 		},
 
@@ -120,13 +121,13 @@
 					to: this.contactTo == 'other' ? this.contactOther : this.contactTo,
 					content: this.contactMessage,
 					recaptcha: this.contactRecaptcha
-				} 
+				}
 
 				// Disable the submit button and change the text.
 				this.contactRecaptcha = false;
 				this.buttonMessage = 'Sending your message...';
 
-				// Send the Axios request. At the end update the status the notice based on server response. 
+				// Send the Axios request. At the end update the status the notice based on server response.
 				axios.post('/api/message', requestData)
 					 .then((response) => {
 					 	if (response.status === 200 && response.data === 'ok') {
