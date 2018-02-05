@@ -17,22 +17,11 @@ Route::get('/', function () {
 
 
 /**
- * Routes that will be called by Axios to populate the Vuex Store.
+ * Routes that are called to populate the Vuex Store and update the database.
  */
-Route::get('api/all', 'ApiController@all');
-Route::get('api/carousel', 'ApiController@carousel');
-Route::get('api/about', 'ApiController@about');
-Route::get('api/people', 'ApiController@people');
-Route::get('api/project', 'ApiController@project');
-Route::get('api/contact', 'ApiController@contact');
-Route::get('api/subscription', 'ApiController@subscription');
-
-
-/**
- * Routes that handle POST requests (e.g., storing a contact message to the database).
- */
-Route::post('api/message', 'ApiController@storeMessage')->name('message.store');
-Route::post('api/subscription', 'ApiController@storeSubscription')->name('subscription.store');
+Route::get('api/landing-page', 	'ApiController@landingPage')		->name('api.landingPage');
+Route::post('api/message', 		'ApiController@storeMessage')		->name('api.storeMessage');
+Route::post('api/subscription', 'ApiController@storeSubscription')	->name('api.storeSubscription');
 
 
 /*

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class ContactMessage extends Model
 {
 	/**
-	 * Fetch all active rows from 'contact_sections' table. Laravel 
+	 * Fetch all active rows from 'contact_sections' table. Laravel
 	 * will output json by default when the result is returned.
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function allOrderedBySentDate()
@@ -20,9 +20,9 @@ class ContactMessage extends Model
 
 	/**
 	 * Add a new row to the  'contact_sections' table.
-	 * 
+	 *
 	 * @param array $data The data passed through the `POST` request.
-	 * @return bool The status of the query. 
+	 * @return bool The status of the query.
 	 */
 	public static function add($data) : bool {
 		$message = new ContactMessage();

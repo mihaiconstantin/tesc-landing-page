@@ -16,12 +16,12 @@ class Controller extends BaseController
 
 	/**
 	 * Validate Google Recaptcha response.
-	 * 
+	 *
 	 * @param string $recaptcha Recaptacha obtained from Axios containing the picture challenge result.
 	 * @param string $ip Client `IP` (i.e., the form sender).
-	 * @return mixed GuzzleHttp response. 
+	 * @return mixed GuzzleHttp response.
 	 */
-	protected function validateRecaptcha(string $recaptcha, string $ip) 
+	protected function validateRecaptcha(string $recaptcha, string $ip)
 	{
 		$data = array(
 			'secret' 	=> env('GOOGLE_RECAPTCHA_SECRET'),

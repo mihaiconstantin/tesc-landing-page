@@ -19,7 +19,7 @@ class ApiController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function all()
+	public function landingPage()
 	{
 		return array(
 			'sectionCarousel' 	=> CarouselSection::getActiveRows(),
@@ -31,81 +31,13 @@ class ApiController extends Controller
 
 
 	/**
-	 * Fetch the data for the Carousel Section.
-	 *
-	 * @return Response
-	 */
-	public function carousel()
-	{
-		return CarouselSection::getActiveRows();
-	}
-
-
-	/**
-	 * Fetch the data for the About Section.
-	 *
-	 * @return Response
-	 */
-	public function about()
-	{
-		return AboutSection::getActiveRows();
-	}
-
-
-	/**
-	 * Fetch the data for the People Section.
-	 *
-	 * @return Response
-	 */
-	public function people()
-	{
-		return PeopleSection::getActiveRows();
-	}
-
-
-	/**
-	 * Fetch the data for the Projects Section.
-	 *
-	 * @return Response
-	 */
-	public function project()
-	{
-		return ProjectSection::getActiveRows();
-	}
-
-
-	/**
-	 * Fetch the data for the Contact Section.
-	 *
-	 * @return Response
-	 */
-	public function contact()
-	{
-		// TODO: Remove this.
-		return ContactMessage::allOrderedBySentDate();
-	}
-
-
-	/**
-	 * Fetch the subscriptions.
-	 *
-	 * @return Response
-	 */
-	public function subscription()
-	{
-		// TODO: Remove this.
-		return Subscription::allOrderedByCreationDate();
-	}
-
-
-	/**
 	 * Store the data sent via the contact form on the landing page.
 	 *
 	 * @return Response
 	 */
 	public function storeMessage(Request $request)
-	{	
-		// Performing Recaptach validation before everything else. 
+	{
+		// Performing Recaptach validation before everything else.
 		$recaptchaStatus = $this->validateRecaptcha($request->input('recaptcha'), $request->ip());
 		if (!$recaptchaStatus) { return 'robot'; }
 
@@ -120,14 +52,14 @@ class ApiController extends Controller
 			'content' 	=> $request->input('content'),
 			'sent'		=> 0
 		);
-		
+
 		// TODO: Send email here... When done update the `sent` value.
 
 		// Store the message in the database.
 		$status = ContactMessage::add($data);
 
 		// Return a response back to Axios.
-		return $status ? 'ok' : 'nok'; 
+		return $status ? 'ok' : 'nok';
 	}
 
 
