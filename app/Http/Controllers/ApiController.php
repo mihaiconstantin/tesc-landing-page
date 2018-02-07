@@ -21,11 +21,22 @@ class ApiController extends Controller
 	 */
 	public function landingPage()
 	{
+		try {
+			$siteSettingsVoyager = array(
+				'navbar_logo' 		=> setting('site.navbar_logo'),
+				'footer_logo' 		=> setting('site.footer_logo'),
+				'terms_conditions' 	=> setting('site.terms_conditions')
+			);
+		} catch (Exception $e) {
+			$siteSettingsVoyager = $e->getMessage();
+		}
+
 		return array(
-			'sectionCarousel' 	=> CarouselSection::getActiveRows(),
-			'sectionAbout' 		=> AboutSection::getActiveRows(),
-			'sectionPeople' 	=> PeopleSection::getActiveRows(),
-			'sectionProject' 	=> ProjectSection::getActiveRows()
+			'sectionCarousel' 		=> CarouselSection::getActiveRows(),
+			'sectionAbout' 			=> AboutSection::getActiveRows(),
+			'sectionPeople' 		=> PeopleSection::getActiveRows(),
+			'sectionProject' 		=> ProjectSection::getActiveRows(),
+			'siteSettingsVoyager'	=> $siteSettingsVoyager
 		);
 	}
 
