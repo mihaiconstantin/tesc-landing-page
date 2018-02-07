@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('../bootstrap');
+ require('../bootstrap');
 
 
 // Vue.js and components.
@@ -22,24 +22,24 @@ import { store } from '../store/store';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('app-word-animation', WordAnimation);
-Vue.component('app-main-navbar', MainNavBar);
-Vue.component('app-carousel', Carousel);
-Vue.component('app-about', About);
-Vue.component('app-people', People);
-Vue.component('app-projects', Projects);
-Vue.component('app-contact', Contact);
-Vue.component('app-footer', Footer);
+ Vue.component('app-word-animation', WordAnimation);
+ Vue.component('app-main-navbar', MainNavBar);
+ Vue.component('app-carousel', Carousel);
+ Vue.component('app-about', About);
+ Vue.component('app-people', People);
+ Vue.component('app-projects', Projects);
+ Vue.component('app-contact', Contact);
+ Vue.component('app-footer', Footer);
 
 
 // Registering Vue.js external libraries.
 Vue.use(VueSmoothScroll);
 
 const app = new Vue({
-    el: '#app',
-    store: store,
-    mounted: function () {
-        this.$store.dispatch('fetchAllData'); 
+	el: '#app',
+	store: store,
+	mounted: function () {
+		this.$store.dispatch('fetchAllData'); 
 	},
 
 	/**
@@ -48,16 +48,16 @@ const app = new Vue({
 	 * 
 	 * TODO: Refactor (i.e., https://github.com/jlmakes/scrollreveal#34-asynchronous-content). 
 	 */
-	watch: {
-		loadingCompleted() {
-		    this.$nextTick(() => {
-			    ScrollRevealConfig(window.ScrollReveal);
-		    });
-		},
+	 watch: {
+	 	loadingCompleted() {
+	 		this.$nextTick(() => {
+	 			ScrollRevealConfig(window.ScrollReveal);
+	 		});
+	 	},
 	},
 
-	computed: {
-		sectionsDataLoadCompleted() {
+	 computed: {
+	 	sectionsDataLoadCompleted() {
 			// Checking that all `state.initialization` keys are set (i.e., not null). If a single key is null, false is returned.
 			return Object.keys(this.$store.state.initialization).every((key) => { 
 				return this.$store.state.initialization[key] !== null; 

@@ -1,9 +1,10 @@
 @extends('templates.index')
 
 @section('content')
+
 <div id="app" class="bp">
-	<!-- <app-word-animation v-if="!loadingCompleted"></app-word-animation> -->
-	<app-word-animation v-if="!sectionsDataLoadCompleted"></app-word-animation>
+	<app-word-animation v-if="!loadingCompleted"></app-word-animation>
+	<!-- TODO: Fix no enter effect <app-word-animation v-if="!sectionsDataLoadCompleted"></app-word-animation> -->
 	<!-- <app-word-animation v-if="!wordAnimationCycleCompleted"></app-word-animation>  -->
 
 	<template v-else>
