@@ -1,11 +1,16 @@
 @import '../bootstrap';
 
+
 body {
-	padding-top: 1rem;
+	// padding-top: 105px;
+	background-color: $app-white;
 }
 
 #project {
+	padding-top: 105px;
 	position: relative;
+	overflow: hidden;
+
 
 	.logo {
 		margin: 0 auto 1rem auto;
@@ -17,12 +22,16 @@ body {
 
 	article {
 		@include material_shadow_md;
-		margin: 0 auto 1rem auto;
+		margin: 0 auto 2rem auto;
 		padding: 1.5rem;
 		position: relative;
 	}
 
 	header {
+		.project-title {
+			position: relative;
+		}
+
 		.project-title, .project-pubdate {
 			margin-bottom: 1rem;
 		}
@@ -33,73 +42,76 @@ body {
 
 		.project-pubdate {
 			display: block;
+
+			.project-category {
+				color: $app-darkblue;
+				font-weight: 400;
+			}
+
 		}
 
 		.project-author {
 			span {
 				color: $app-darkblue;
+				font-weight: 400;
 			}
 		}
+
+		.project-featured-image {
+			@include material_shadow_sm;
+		}
+
 	}
 
 	.project-content {
-		p, h1, h2, h3, h4, h5, h6 {
+		margin-bottom: 3rem;
+
+		* {
 			color: #212529 !important;
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;			
-		}
+		}		
 	} 
 
-	.footer-copyright {
+	.next-article {
 		p {
 			font-size: .8rem;
 			margin-bottom: 0;
-			text-align: center;
 		}
 
 		a {
-			color: $app-black;
-			text-decoration: none;
+			text-decoration: none;			
 		}
 	}
 
-	.project-share {
-		margin-bottom: .5rem;
+	footer {
+		margin-top: 3rem;
 
-		img {
-			width: 30px;
-			filter: grayscale(80%);
-			transition: all .5s;
+		.footer-copyright {
+			p {
+				font-size: .8rem;
+				margin-bottom: 0;
+				text-align: center;
+			}
 
-			&:hover {
-				filter: grayscale(0%);
-				transform:rotate(360deg);
+			a {
+				color: $app-black;
+				text-decoration: none;
+			}
+		}
+
+		.project-share {
+			margin-bottom: .5rem;
+
+			img {
+				width: 30px;
+				filter: grayscale(80%);
+				transition: all .5s;
+
+				&:hover {
+					filter: grayscale(0%);
+					transform:rotate(360deg);
+				}
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

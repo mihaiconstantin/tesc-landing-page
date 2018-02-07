@@ -1,7 +1,10 @@
 @import "variables";
+@import "mixins";
+
+
 /* 
  * Post-it pin and positions.
- * Source: https://codepen.io/joshnh/pen/shHbJ
+ * Credits: https://codepen.io/joshnh/pen/shHbJ
  */
 
 .pin {
@@ -68,3 +71,68 @@
 }
 
 
+
+/* 
+ * Featured ribbon and positioning.
+ * Credits: https://codepen.io/ajimix/pen/sDret
+ */
+
+.featured-ribbon {
+	@include material_shadow_sm;
+	position: absolute;
+	padding: .3rem .5rem;
+	font-size: 1.3rem;
+	color: #fff;
+	background: $app-organge;
+
+	&:before {
+		content: '';
+		position: absolute;
+		height: 0;
+		width: 0;
+		top: 100%;
+		right: 0;
+		border-top: 6px solid #cb9b0a;
+		border-right: 20px solid transparent;
+		z-index: -1;
+	}
+}
+
+.ribbon-bottom-right {
+	right: -2.75rem;
+	bottom: -3.33rem;
+}
+
+
+
+/*
+ * Expanding text underline effect.
+ * Credits: https://codepen.io/colloque/pen/bDgmx
+ * StackOverflow: https://stackoverflow.com/questions/48669444/css-border-after-not-expanding-full-width-when-the-text-is-wrapped
+ */
+
+.effect-underline {
+	position: relative;
+	display: inline-block;
+
+	&:after {
+		content: '';
+		border-bottom: 1px solid;
+		width: 100%;
+		height: 1em;
+		display: inline-block;
+		margin-top: 10px;
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		transition: all 0.35s;
+		transform: scale(0, 1);
+	}
+
+	&:hover {
+		&:after {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+}
