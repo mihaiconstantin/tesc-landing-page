@@ -8,6 +8,9 @@ import Projects from './components/Projects.vue';
 import Contact from './components/Contact.vue';
 import Footer from './components/Footer.vue';
 
+import ProjectNavBar from './components/ProjectNavBar.vue';
+
+
 export {
 	WordAnimation,
 	MainNavBar,
@@ -16,5 +19,7 @@ export {
 	People,
 	Projects,
 	Contact,
-	Footer
+	Footer,
+
+	ProjectNavBar
 }

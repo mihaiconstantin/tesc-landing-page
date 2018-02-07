@@ -9,7 +9,7 @@
 
 				<div class="carousel-inner justify-content-center">
 					<div v-for='item in items' class="carousel-item" :class="{ active: item.order == 1 }">
-						<img class="d-block w-100 mx-auto d-block" alt="TESC carousel" :src="item.image">
+						<img class="d-block w-100 mx-auto d-block" alt="TESC carousel" :src="revealPath(item.image, 'storage')">
 						<div class="carousel-caption d-none d-md-block">
 							<h3>{{ item.title }}</h3>
 							<p>{{ item.content }}</p>
@@ -33,21 +33,17 @@
 
 
 <script>
-	// import { mapActions } from 'vuex';
+	import { imageMixin } from '../mixins/imageMixin';
 	
 	export default {
+		mixins: [
+			imageMixin
+		],
+
 		computed: {
 			items() {
 				return this.$store.state.initialization.sectionCarousel;
 			}
-		},
-
-		methods: {
-			// ...mapActions(['fetchData'])
-		},	
-
-		mounted() {
-			// this.fetchData({ section: 'sectionCarousel', api: 'carousel' });
 		}
 	}
 </script>

@@ -13,7 +13,7 @@
 			<div class="bg col-11">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap top-enter">
 					<div v-for="person in items" v-if="person.role == 'founder'" class="bp col-md-5 text-center tesc-founder">
-						<img :src="person.image" :alt="person.name" class="rounded-circle" width="140" height="140">
+						<img :src="revealPath(person.image, 'storage')" :alt="person.name" class="rounded-circle" width="140" height="140">
 						<h2>{{ person.name }}</h2>
 						<p>{{ person.description }}<br><a :href="person.link" class="btn btn-app-color" role="button">Read more&raquo;</a></p>
 					</div>
@@ -29,7 +29,7 @@
 			<div class="bg col-11">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap bottom-enter">
 					<a v-for="person in items" v-if="person.role == 'employee'" :href="person.link" class="bp col-md-3 text-center tesc-collaborator">
-						<img :src="person.image" :alt="person.name" class="rounded-circle" width="140" height="140">
+						<img :src="revealPath(person.image, 'storage')" :alt="person.name" class="rounded-circle" width="140" height="140">
 						<h2>{{ person.name }}</h2>
 						<p>{{ person.description }}</p>
 					</a>
@@ -42,7 +42,13 @@
 
 
 <script>
+	import { imageMixin } from '../mixins/imageMixin';
+
 	export default {
+		mixins: [
+			imageMixin
+		],
+
 		computed: {
 			items() {
 				return this.$store.state.initialization.sectionPeople;

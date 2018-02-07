@@ -4,7 +4,7 @@
 		<div id="footer-1" class="br row d-flex flex-column justify-content-center align-items-center">
 		
 			<div class="bk footer-logo">
-				<img src="../../images/logo_large.png" alt="TESC logo">
+				<img :src="revealPath(settings.footer_logo, 'storage')" alt="TESC logo">
 			</div>
 
 			<div class="bk footer-subscribe col-lg-4 col-md-5 col-sm-6 col-9">
@@ -39,7 +39,7 @@
 						</button>
 					</div>
 
-					<div class="modal-body" v-html="termsHtml"></div>
+					<div class="modal-body" v-html="settings.terms_conditions"></div>
 
 					<div class="modal-footer">
 						<button type="button" class="btn btn-tesc" data-dismiss="modal">Close</button>
@@ -54,7 +54,14 @@
 
 
 <script>
+	import { imageMixin } from '../mixins/imageMixin';
+
 	export default {
+		mixins: [
+			imageMixin
+		],
+
+
 		data() {
 			return {
 				ui: {
@@ -66,14 +73,19 @@
 					buttonOn: true,
 					buttonText: 'Keep me informed!',
 				},
-				subscriberEmail: '',
-				termsHtml: '<h6>Terms Section 1</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h6>Terms Section 2</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h6>Terms Section 3</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+				subscriberEmail: ''
 			}
 		},
 
 
 		computed: {
-			statusMessage() { return this.ui.status ? this.ui.successText : this.ui.errorText; }
+			settings() {
+				return this.$store.state.initialization.siteSettingsVoyager;
+			},
+
+			statusMessage() { 
+				return this.ui.status ? this.ui.successText : this.ui.errorText; 
+			}
 		},
 
 

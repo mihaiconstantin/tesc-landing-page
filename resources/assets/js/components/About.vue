@@ -6,11 +6,11 @@
 		</div>
 
 		<div v-for="item in items" class="br row justify-content-center align-items-center">
-			<div v-if="notNull(item.image)" class="bg about-img col-lg-4" :class="[ item.image_position === 'right' ? 'order-2 top-offset' : 'bottom-offset' ]">
-				<img class="bp img-fluid" :src="item.image" :alt="item.image_alt">
+			<div v-if="itExistsAndisApproved(item.image, item.image_display)" class="bg about-img col-lg-4" :class="[ item.image_position === 'right' ? 'order-2 top-offset' : 'bottom-offset' ]">
+				<img class="bp img-fluid" :src="revealPath(item.image, 'storage')" :alt="item.image_alt">
 			</div>
 
-			<div class="bg about-text" :class="[ notNull(item.image) ? 'col-lg-6' : 'col-lg-10', item.fade_direction + '-enter' ]">
+			<div class="bg about-text" :class="[ itExistsAndisApproved(item.image, item.image_display) ? 'col-lg-6' : 'col-lg-10', item.fade_direction + '-enter' ]">
 				<h2 class="display-4">{{ item.title }}<br><span class="text-muted">{{ item.subtitle }}</span></h2>
 				<p class="lead" v-html="item.content"></p>
 			</div>
@@ -21,24 +21,17 @@
 
 
 <script>
-	// import { mapActions } from 'vuex';
+	import { imageMixin } from '../mixins/imageMixin';
 
 	export default {
+		mixins: [
+			imageMixin
+		],
+
 		computed: {
 			items() {
 				return this.$store.state.initialization.sectionAbout;
 			}
-		},
-
-		methods: {
-			// ...mapActions(['fetchData']),
-			notNull(value) {
-				return value === null ? false : true;
-			}
-		},
-
-		mounted() {
-			// this.fetchData({ section: 'sectionAbout', api: 'about' });
 		}
 	}
 </script>

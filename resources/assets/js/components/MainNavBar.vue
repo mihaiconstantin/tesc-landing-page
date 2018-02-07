@@ -3,7 +3,7 @@
 
 		<nav class="br navbar navbar-expand-sm fixed-top navbar-light bg-app-navbar">
 			<a class="bg navbar-brand" href="#app-carousel" v-smooth-scroll="{ duration: 500, offset: -61 }">
-				<img src="../../images/logo.png" alt="TESC logo" class="img-fluid">
+				<img :src="revealPath(settings.navbar_logo, 'storage')" alt="TESC logo" class="img-fluid">
 			</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,19 @@
 
 
 <script>
+	import { imageMixin } from '../mixins/imageMixin';
+
 	export default {
+		mixins: [
+			imageMixin
+		],
+
+		computed: {
+			settings() {
+				return this.$store.state.initialization.siteSettingsVoyager;
+			}
+		},
+
 		data() {
 		   return {
 			   links: [
@@ -86,7 +98,7 @@
 			},
 
 			collapseBurgerMenu() {
-				// This next line is sad. I'll do better.
+				// This next line is sad. I promise to do better.
 				$('.navbar-collapse').collapse('hide');
 			},
 		},
