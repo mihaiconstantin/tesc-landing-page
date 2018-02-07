@@ -20,6 +20,7 @@ class CreateAboutSectionsTable extends Migration
             $table->text('content');
             $table->enum('fade_direction', ['left', 'right', 'top', 'bottom'])->nullable();
             $table->string('image')->nullable();
+            $table->boolean('image_display')->default(0);
             $table->string('image_alt')->nullable();
             $table->enum('image_position', ['left', 'right'])->nullable();
             $table->boolean('display')->default(1);
