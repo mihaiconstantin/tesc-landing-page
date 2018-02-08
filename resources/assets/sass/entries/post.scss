@@ -6,7 +6,7 @@ body {
 	background-color: $app-white;
 }
 
-#project {
+#post-main {
 	padding-top: 105px;
 	position: relative;
 	overflow: hidden;
@@ -16,7 +16,7 @@ body {
 		margin: 0 auto 1rem auto;
 	}
 	
-	header, .project-content {
+	header, .post-content {
 		margin-bottom: 1.5rem;
 	}
 
@@ -28,42 +28,42 @@ body {
 	}
 
 	header {
-		.project-title {
+		.post-title {
 			position: relative;
 		}
 
-		.project-title, .project-pubdate {
+		.post-title, .post-pubdate {
 			margin-bottom: 1rem;
 		}
 
-		.project-author, .project-featured-image {
+		.post-author, .post-featured-image {
 			margin-bottom: 0;
 		}
 
-		.project-pubdate {
+		.post-pubdate {
 			display: block;
 
-			.project-category {
+			.post-category {
 				color: $app-darkblue;
 				font-weight: 400;
 			}
 
 		}
 
-		.project-author {
+		.post-author {
 			span {
 				color: $app-darkblue;
 				font-weight: 400;
 			}
 		}
 
-		.project-featured-image {
+		.post-featured-image {
 			@include material_shadow_sm;
 		}
 
 	}
 
-	.project-content {
+	.post-content {
 		margin-bottom: 3rem;
 
 		* {
@@ -99,7 +99,7 @@ body {
 			}
 		}
 
-		.project-share {
+		.post-share {
 			margin-bottom: .5rem;
 
 			img {
