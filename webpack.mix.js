@@ -17,8 +17,8 @@ mix.js('resources/assets/js/entries/index.js', 				'public/js')
    
 
 // Project pages.
-mix.js('resources/assets/js/entries/project.js', 			'public/js')
-   .sass('resources/assets/sass/entries/project.scss',		'public/css');
+mix.js('resources/assets/js/entries/post.js', 			'public/js')
+   .sass('resources/assets/sass/entries/post.scss',		'public/css');
 
 
 // Voyager override.
