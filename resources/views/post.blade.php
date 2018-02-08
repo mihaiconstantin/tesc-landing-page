@@ -12,18 +12,21 @@
 	
 
 @section('content')
+	<!-- Post NavBar. -->
 	<div id="post-navbar" class="bk">
 		<app-blog-navbar :logo="{{ json_encode(setting('site.navbar_logo')) }}"></app-blog-navbar>
 	</div>
 
-
+	<!-- Post Content. -->
 	<main id="post-main" class="br container">
 		<article class="bk col-md-11">
+			<!-- Pins. -->
 			<i class="pin pin-top-left"></i>
 			<i class="pin pin-top-right"></i>
 			<i class="pin pin-bottom-left"></i>
 			<i class="pin pin-bottom-right"></i>
 
+			<!-- Post Header. -->
 			<header class="bg text-center">
 				<h1 class="bp post-title display-4">
 					{{ $post->title }}
@@ -39,10 +42,12 @@
 				<img src="{{ URL::asset('storage/' . $post->image) }}" alt="{{ $post->seo_title }}" class="bp post-featured-image img-fluid">
 			</header>
 
+			<!-- Post Body. -->
 			<section class="bg post-content col-11 mx-auto">{!! $post->body !!}</section>
 
 			<hr class="col-8">
 
+			<!-- Post Next Read. -->
 			<aside class="bg next-article text-center mx-auto col-8">
 				<p class="bp text-muted">Suggested read:</p>
 				<a href="#" class="bp"><span class="bk effect-underline">Long Title of the Next Post Goes Here</span></a>
@@ -50,6 +55,7 @@
 
 			<hr class="col-8">
 
+			<!-- Post Footer. -->
 			<footer class="bg">
 				<div class="bp post-share text-center">
 					<a href="https://twitter.com/intent/tweet?text=Check%20out&via=TilburgU_TESC&url={{ url()->current() }}" target="_blank">

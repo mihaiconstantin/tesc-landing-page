@@ -2,11 +2,12 @@
 
 
 body {
-	// padding-top: 105px;
 	background-color: $app-white;
 }
 
 #post-main {
+	// Removed padding from `body` and added it here to prevent 
+	// the pins to be hidden by `overflow: hidden` style.
 	padding-top: 105px;
 	position: relative;
 	overflow: hidden;

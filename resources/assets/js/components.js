@@ -7,7 +7,6 @@ import People from './components/People.vue';
 import Projects from './components/Projects.vue';
 import Contact from './components/Contact.vue';
 import Footer from './components/Footer.vue';
-
 import BlogNavBar from './components/BlogNavBar.vue';
 
 
@@ -20,6 +19,5 @@ export {
 	Projects,
 	Contact,
 	Footer,
-
 	BlogNavBar
 }
