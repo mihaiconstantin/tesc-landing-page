@@ -49625,7 +49625,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return featured == 1 ? 'col-md-6' : 'col-md-4';
         },
         prepareLink: function prepareLink(slug) {
-            return '/project/' + slug;
+            return '/blog/post/' + slug;
         }
     }
 });
@@ -49685,7 +49685,7 @@ var render = function() {
                           staticClass: "btn btn-tesc",
                           attrs: {
                             href: _vm.prepareLink(project.link),
-                            target: "_blank"
+                            target: "_self"
                           }
                         },
                         [_vm._v("Find out more »")]
@@ -50264,7 +50264,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	mounted: function mounted() {
-		this.render();
+		this.$nextTick(function () {
+			this.render();
+		});
 	},
 
 
@@ -50283,7 +50285,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			window.grecaptcha.reset(this.widgetId);
 		}
 	}
-
 });
 
 /***/ }),
@@ -51196,7 +51197,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			links: [{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }],
 
-			activeLink: 'Blog'
+			activeLink: ''
 		};
 	},
 

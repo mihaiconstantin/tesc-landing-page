@@ -48,7 +48,7 @@
 				   {name: 'Blog',	href: '/blog'	},
 			   ],
 
-			   activeLink: 'Blog',
+			   activeLink: '',
 		   }
 		},
 

@@ -17,13 +17,15 @@
 
 
 		mounted() {
-			this.render();
+			this.$nextTick(function () {
+				this.render();
+			});
 		},
 
 
 		methods: {
 			render() {
-				this.widgetId = grecaptcha.render(this.placeholderId, {
+				this.widgetId = window.grecaptcha.render(this.placeholderId, {
 					sitekey: this.sitekey,
 					callback: (response) => {
 						this.$emit('recaptchaResponse', response);
@@ -32,10 +34,9 @@
 			},
 
 			reset() {
-				grecaptcha.reset(this.widgetId);
+				window.grecaptcha.reset(this.widgetId);
 			},
 		}
-
 	}
 </script>
 
