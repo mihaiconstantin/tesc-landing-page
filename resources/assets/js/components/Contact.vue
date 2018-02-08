@@ -17,7 +17,7 @@
 						<form v-on:submit.prevent="sendMessage">
 							<div class="form-group">
 								<label for="email">Your email address:</label>
-								<input v-model.lazy.trim="contactFrom" @keyup.once="updateRenderRecaptcha" type="email" class="form-control" id="email" placeholder="name@example.com" required>
+								<input v-model.lazy.trim="contactFrom" type="email" class="form-control" id="email" placeholder="name@example.com" required>
 							</div>
 
 							<div class="form-group">
@@ -110,6 +110,10 @@
 		watch: {
 			contactTo() {
 				if (this.contactTo != 'other') { this.contactOther = ''; }
+			},
+
+			contactFrom() {
+				this.renderRecaptcha = true;
 			}
 		},
 
@@ -156,11 +160,6 @@
 
 			updateRecaptchaResponse(response) {
 				this.contactRecaptcha = response;
-			},
-
-
-			updateRenderRecaptcha() {
-				this.renderRecaptcha = true;
 			}
 		}
 	}

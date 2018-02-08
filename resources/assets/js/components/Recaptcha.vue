@@ -9,8 +9,8 @@
 /**
  * Updated the logic for recaptcha as follows:
  * 	- within Contact.vue
- *		- added an event listener on the email input
- * 			- on key press (once) it sets a prop on <app-recaptcha> to true
+ *		- added a watcher on the v-model of email input
+ * 			- on change it sets a prop on <app-recaptcha> to true
  * 	- within Recaptcha.vue
  *		- added a watcher on the prop passed from Contact.vue
  *			- when the prop is changed from false to true (i.e., the user started to type his or her email),
