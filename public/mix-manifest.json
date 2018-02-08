@@ -1,4 +1,7 @@
 {
-    "/js/project.js": "/js/project.js",
-    "/css/project.css": "/css/project.css"
+    "/js/index.js": "/js/index.js",
+    "/css/index.css": "/css/index.css",
+    "/css/project.css": "/css/project.css",
+    "/css/voyager-override.css": "/css/voyager-override.css",
+    "/js/project.js": "/js/project.js"
 }
