@@ -30,8 +30,8 @@ class BlogController extends Controller
      */
     public function post($slug)
     {
-        // $post = Post::where('slug', '=', $slug)->firstOrFail();        
-        // return view('post', compact('post'));
-        return 'Post with slug: ' . $slug;
+        $post = Post::where('slug', '=', $slug)->firstOrFail();        
+        // Checkf the post category & pick the next post (by date) from within that category.
+        return view('post', compact('post'));
     }
 }
