@@ -15,7 +15,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">{{ project.title }}</h4>
                                 <p class="card-text">{{ project.content }}</p>
-                                <a :href="prepareLink(project.link)" class="btn btn-tesc" target="_blank">Find out more &raquo;</a>
+                                <a :href="prepareLink(project.link)" class="btn btn-tesc" target="_self">Find out more &raquo;</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
             },
 
             prepareLink(slug) {
-                return `/project/${slug}`;
+                return `/blog/post/${slug}`;
             }            
         }
     }
