@@ -100,8 +100,7 @@
 			},
 
 			buttonDisabled() {
-				// return this.contactRecaptcha ? false : true;
-				return false;
+				return this.contactRecaptcha ? false : true;
 			}
 		},
 
