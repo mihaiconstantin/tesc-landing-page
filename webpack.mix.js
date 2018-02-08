@@ -23,3 +23,7 @@ mix.js('resources/assets/js/entries/post.js', 			'public/js')
 
 // Voyager override.
 mix.sass('resources/assets/sass/entries/voyager-override.scss',	'public/css');
+
+
+// Copy images that cannot be uploaded via Voyager (i.e., the loader used in WordAnimation.vue).
+mix.copyDirectory('resources/assets/img', 'public/img');

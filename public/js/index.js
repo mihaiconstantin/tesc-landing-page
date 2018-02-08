@@ -48138,7 +48138,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app-loading {\n  margin-top: 5%;\n  height: 290px;\n  padding: 50px 0;\n}\n#app-loading .display-4 {\n    line-height: unset;\n}\n.words {\n  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n  border-radius: 10px;\n  position: relative;\n  width: 450px;\n}\n.base-word {\n  color: #131835;\n  text-align: center;\n}\n.word {\n  position: absolute;\n  top: 100px;\n  left: 0;\n  right: 0;\n}\n@media (max-width: 767px) {\n.words {\n    width: 90%;\n}\n}\n.letter {\n  float: left;\n  -webkit-transform: translateZ(25px);\n          transform: translateZ(25px);\n  -webkit-transform-origin: 50% 50% 25px;\n          transform-origin: 50% 50% 25px;\n}\n.letter.out {\n  -webkit-transform: rotateX(90deg);\n          transform: rotateX(90deg);\n  -webkit-transition: -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n  transition: -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n}\n.letter.in {\n  -webkit-transform: rotateX(0deg);\n          transform: rotateX(0deg);\n  -webkit-transition: -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.letter.behind {\n  -webkit-transform: rotateX(-90deg);\n          transform: rotateX(-90deg);\n}\n", ""]);
+exports.push([module.i, "\n#app-loading {\n  margin-top: 5%;\n  height: 290px;\n  padding: 50px 0;\n}\n#app-loading .display-4 {\n    line-height: unset;\n}\n.loader img {\n  width: 7rem;\n  -webkit-animation-name: rotate;\n          animation-name: rotate;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  -webkit-animation-timing-function: linear;\n          animation-timing-function: linear;\n}\n@-webkit-keyframes rotate {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(359deg);\n            transform: rotate(359deg);\n}\n}\n@keyframes rotate {\nfrom {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(359deg);\n            transform: rotate(359deg);\n}\n}\n.words {\n  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n  border-radius: 10px;\n  position: relative;\n  width: 450px;\n}\n.base-word {\n  color: #131835;\n  text-align: center;\n}\n.word {\n  position: absolute;\n  top: 100px;\n  left: 0;\n  right: 0;\n}\n@media (max-width: 767px) {\n.words {\n    width: 90%;\n}\n}\n.letter {\n  float: left;\n  -webkit-transform: translateZ(25px);\n          transform: translateZ(25px);\n  -webkit-transform-origin: 50% 50% 25px;\n          transform-origin: 50% 50% 25px;\n}\n.letter.out {\n  -webkit-transform: rotateX(90deg);\n          transform: rotateX(90deg);\n  -webkit-transition: -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n  transition: -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);\n}\n.letter.in {\n  -webkit-transform: rotateX(0deg);\n          transform: rotateX(0deg);\n  -webkit-transition: -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.letter.behind {\n  -webkit-transform: rotateX(-90deg);\n          transform: rotateX(-90deg);\n}\n", ""]);
 
 // exports
 
@@ -48194,8 +48194,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['animationoff'],
+
 	data: function data() {
 		return {
 			settings: [{ word: 'Experience', id: 0, lettersArray: null, lettersHTML: null, color: '#FFC107', opacity: 1 }, { word: 'Sampling', id: 1, lettersArray: null, lettersHTML: null, color: '#FFC107', opacity: 0 }, { word: 'Center', id: 2, lettersArray: null, lettersHTML: null, color: '#FFC107', opacity: 0 }],
@@ -48204,20 +48210,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			changeWordintervalId: null
 		};
 	},
-	created: function created() {
-		this.splitLetters();
-	},
-	mounted: function mounted() {
-		var _this = this;
-
-		setTimeout(function () {
-			_this.changeWord();
-		}, 400);
-		this.changeWordintervalId = setInterval(this.changeWord, 1300);
-	},
-	beforeDestroy: function beforeDestroy() {
-		clearInterval(this.changeWordintervalId);
-	},
 
 
 	computed: {
@@ -48225,6 +48217,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return this.$store.state.wordAnimation.cycleCount;
 		}
 	},
+
+	created: function created() {
+		if (!this.animationoff) {
+			this.splitLetters();
+		}
+	},
+	beforeMount: function beforeMount() {
+		var _this = this;
+
+		if (!this.animationoff) {
+			setTimeout(function () {
+				_this.changeWord();
+			}, 400);
+			this.changeWordintervalId = setInterval(this.changeWord, 1300);
+		}
+	},
+	beforeDestroy: function beforeDestroy() {
+		if (!this.animationoff) {
+			clearInterval(this.changeWordintervalId);
+		}
+	},
+
 
 	methods: {
 		splitLetters: function splitLetters() {
@@ -48285,25 +48299,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "br row", attrs: { id: "app-loading" } }, [
-    _c(
-      "div",
-      { staticClass: "bk words display-4 mx-auto" },
-      [
-        _c("div", { staticClass: "bk base-word" }, [
-          _vm._v(_vm._s(_vm.baseWord))
-        ]),
-        _vm._v(" "),
-        _vm._l(_vm.settings, function(setting) {
-          return _c("span", {
-            staticClass: "bk word d-flex justify-content-center",
-            style: { color: setting.color, opacity: setting.opacity },
-            attrs: { id: setting.id },
-            domProps: { innerHTML: _vm._s(setting.lettersHTML) }
-          })
-        })
-      ],
-      2
-    )
+    _vm.animationoff
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "bg loader col-6 mx-auto d-flex justify-content-center align-items-center"
+          },
+          [
+            _c("img", {
+              staticClass: "bk img-fluid",
+              attrs: { src: "img/loader-lightblue.png", alt: "loading" }
+            })
+          ]
+        )
+      : _c(
+          "div",
+          { staticClass: "bk words display-4 mx-auto" },
+          [
+            _c("div", { staticClass: "bk base-word" }, [
+              _vm._v(_vm._s(_vm.baseWord))
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.settings, function(setting) {
+              return _c("span", {
+                staticClass: "bk word d-flex justify-content-center",
+                style: { color: setting.color, opacity: setting.opacity },
+                attrs: { id: setting.id },
+                domProps: { innerHTML: _vm._s(setting.lettersHTML) }
+              })
+            })
+          ],
+          2
+        )
   ])
 }
 var staticRenderFns = []
@@ -48459,7 +48487,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	data: function data() {
 		return {
-			links: [{ name: 'About', href: '#app-about' }, { name: 'People', href: '#app-people' }, { name: 'Projects', href: '#app-projects' }, { name: 'Contact', href: '#app-contact' }, { name: 'Blog', href: '#blog' }],
+			links: [{ name: 'About', href: '#app-about' }, { name: 'People', href: '#app-people' }, { name: 'Projects', href: '#app-projects' }, { name: 'Contact', href: '#app-contact' }, { name: 'Blog', href: '/blog' }],
 
 			activeLink: 'About'
 		};
@@ -49892,8 +49920,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return this.noticeSuccess ? this.textSuccess : this.textError;
 		},
 		buttonDisabled: function buttonDisabled() {
-			// return this.contactRecaptcha ? false : true;
-			return false;
+			return this.contactRecaptcha ? false : true;
 		}
 	},
 
@@ -50245,7 +50272,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		render: function render() {
 			var _this = this;
 
-			this.widgetId = grecaptcha.render(this.placeholderId, {
+			this.widgetId = window.grecaptcha.render(this.placeholderId, {
 				sitekey: this.sitekey,
 				callback: function callback(response) {
 					_this.$emit('recaptchaResponse', response);
@@ -50253,7 +50280,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		reset: function reset() {
-			grecaptcha.reset(this.widgetId);
+			window.grecaptcha.reset(this.widgetId);
 		}
 	}
 
@@ -51301,9 +51328,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(100);
-__webpack_require__(107);
 __webpack_require__(108);
-module.exports = __webpack_require__(109);
+__webpack_require__(109);
+module.exports = __webpack_require__(110);
 
 
 /***/ }),
@@ -51315,6 +51342,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_store__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_cookieMixin__ = __webpack_require__(107);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -51327,6 +51355,7 @@ __webpack_require__(15);
 // Vue.js and components.
 var Vue = __webpack_require__(14);
 var VueSmoothScroll = __webpack_require__(101);
+
 
 
 
@@ -51352,21 +51381,21 @@ Vue.use(VueSmoothScroll);
 var app = new Vue({
 	el: '#app',
 	store: __WEBPACK_IMPORTED_MODULE_2__store_store__["a" /* store */],
-	mounted: function mounted() {
+	mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_cookieMixin__["a" /* cookieMixin */]],
+
+	beforeCreate: function beforeCreate() {
 		this.$store.dispatch('fetchAllData');
 	},
 
-	/**
-  * The `sectionsDataLoadCompleted` watcher and computed property are used to determine 
-  * when all the  sections finished pulling data from their respective APIs.
-  * 
-  * TODO: Refactor (i.e., https://github.com/jlmakes/scrollreveal#34-asynchronous-content). 
-  */
+
 	watch: {
 		loadingCompleted: function loadingCompleted() {
 			this.$nextTick(function () {
 				Object(__WEBPACK_IMPORTED_MODULE_1__config__["a" /* ScrollRevealConfig */])(window.ScrollReveal);
 			});
+		},
+		wordAnimationCycleCompleted: function wordAnimationCycleCompleted() {
+			this.setCookie('tesc_word_animation', 'off');
 		}
 	},
 
@@ -51385,7 +51414,17 @@ var app = new Vue({
 		},
 		loadingCompleted: function loadingCompleted() {
 			// Returns `true` if both `sectionsDataLoadCompleted` and `wordAnimationCycleCompleted` are finished.
-			return this.sectionsDataLoadCompleted && this.wordAnimationCycleCompleted ? true : false;
+			// If the `tesc_word_animation` cookie is set to `off` it means that the user is not loading the page 
+			// for the first time, hence we can skip it and the loading status is based solely on the data 
+			// status. We also tell `WordAnimation.vue` what to displayed based on this cookie.
+			if (this.cookieIsEqualTo('tesc_word_animation', 'off')) {
+				return this.sectionsDataLoadCompleted ? true : false;
+			} else {
+				return this.sectionsDataLoadCompleted && this.wordAnimationCycleCompleted ? true : false;
+			}
+		},
+		animationStatus: function animationStatus() {
+			return this.cookieIsEqualTo('tesc_word_animation', 'off');
 		}
 	}
 });
@@ -51442,7 +51481,7 @@ function ScrollRevealConfig(ScrollRevealImport) {
 		viewFactor: 0.3,
 		duration: 900,
 		origin: 'top',
-		distance: '0px'
+		distance: '100px'
 	});
 }
 
@@ -52521,9 +52560,32 @@ var actions = {
 
 /***/ }),
 /* 107 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cookieMixin; });
+var cookieMixin = {
+
+	methods: {
+		setCookie: function setCookie(key, value) {
+			var maxAge = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+			var cookie = key + " = " + value;
+
+			if (maxAge) {
+				cookie = cookie + "; max-age = " + maxAge;
+			}
+			document.cookie = cookie;
+		},
+		getCookieValue: function getCookieValue(key) {
+			return document.cookie.replace(new RegExp("(?:(?:^|.*;\\s*)" + key + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1");
+		},
+		cookieIsEqualTo: function cookieIsEqualTo(key, comparison) {
+			return this.getCookieValue(key) === comparison ? true : false;
+		}
+	}
+
+};
 
 /***/ }),
 /* 108 */
@@ -52533,6 +52595,12 @@ var actions = {
 
 /***/ }),
 /* 109 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 110 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
