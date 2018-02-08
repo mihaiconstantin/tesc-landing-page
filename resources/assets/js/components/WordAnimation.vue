@@ -1,7 +1,11 @@
 <template>
  	<div id="app-loading" class="br row">
- 		
- 		<div class="bk words display-4 mx-auto">
+
+ 		<div v-if="animationoff" class="bg loader col-6 mx-auto d-flex justify-content-center align-items-center">
+			<img src="img/loader-lightblue.png" alt="loading" class="bk img-fluid">
+ 		</div>
+
+ 		<div v-else class="bk words display-4 mx-auto">
  			<div class="bk base-word">{{ baseWord }}</div>
 			<span class="bk word d-flex justify-content-center" v-for="setting in settings" v-html="setting.lettersHTML" :id="setting.id" :style="{ color: setting.color, opacity: setting.opacity }"></span>
  		</div>
@@ -12,6 +16,11 @@
 
 <script>
 	export default {
+		props: [
+			'animationoff'
+		],
+
+
 		data() {
 			return {
 				settings: [
@@ -25,24 +34,35 @@
 			}
 		},
 
-		created() {
-			this.splitLetters();
-		},
-
-		mounted() {
-			setTimeout(() => { this.changeWord(); }, 400);
-			this.changeWordintervalId = setInterval(this.changeWord, 1300);
-		},
-
-		beforeDestroy() {
-			clearInterval(this.changeWordintervalId);
-		},
 
 		computed: {
 			cycleCount() {
 				return this.$store.state.wordAnimation.cycleCount;	
 			}
 		},
+
+
+		created() {
+			if (!this.animationoff) {	
+				this.splitLetters();
+			}
+		},
+
+
+		beforeMount() {
+			if (!this.animationoff) {
+				setTimeout(() => { this.changeWord(); }, 400);
+				this.changeWordintervalId = setInterval(this.changeWord, 1300);
+			}
+		},
+
+
+		beforeDestroy() {
+			if (!this.animationoff) {
+				clearInterval(this.changeWordintervalId);
+			}
+		},
+
 
 		methods: {
 			splitLetters() {
@@ -114,6 +134,25 @@
 			line-height: unset;
 		}
 	}
+
+	// Image loader styles.
+	.loader {
+		img {
+			width: 7rem;
+			animation-name: rotate; 
+			animation-duration: 1s; 
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		@keyframes rotate {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(359deg);}
+		}
+	}
+
+
+	// Word animation styles.
 
 	.words {
 		@include material_shadow_md;

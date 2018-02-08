@@ -14,6 +14,7 @@ const VueSmoothScroll = require('vue-smooth-scroll');
 import { WordAnimation, MainNavBar, Carousel, About, People, Projects, Contact, Footer } from '../components';
 import { ScrollRevealConfig } from '../config';
 import { store } from '../store/store';
+import { cookieMixin } from '../mixins/cookieMixin';
 
 
 /**
@@ -38,23 +39,26 @@ Vue.use(VueSmoothScroll);
 const app = new Vue({
 	el: '#app',
 	store: store,
-	mounted: function () {
+	mixins: [ cookieMixin ],
+	
+
+	beforeCreate () {
 		this.$store.dispatch('fetchAllData'); 
 	},
 
-	/**
-	 * The `sectionsDataLoadCompleted` watcher and computed property are used to determine 
-	 * when all the  sections finished pulling data from their respective APIs.
-	 * 
-	 * TODO: Refactor (i.e., https://github.com/jlmakes/scrollreveal#34-asynchronous-content). 
-	 */
+
 	 watch: {
 	 	loadingCompleted() {
 	 		this.$nextTick(() => {
 	 			ScrollRevealConfig(window.ScrollReveal);
 	 		});
 	 	},
+
+	 	wordAnimationCycleCompleted() {
+	 		this.setCookie('tesc_word_animation', 'off');
+	 	}
 	},
+
 
 	 computed: {
 	 	sectionsDataLoadCompleted() {
@@ -71,7 +75,18 @@ const app = new Vue({
 
 		loadingCompleted() {
 			// Returns `true` if both `sectionsDataLoadCompleted` and `wordAnimationCycleCompleted` are finished.
-			return (this.sectionsDataLoadCompleted && this.wordAnimationCycleCompleted) ? true : false;
+			// If the `tesc_word_animation` cookie is set to `off` it means that the user is not loading the page 
+			// for the first time, hence we can skip it and the loading status is based solely on the data 
+			// status. We also tell `WordAnimation.vue` what to displayed based on this cookie.
+			if (this.cookieIsEqualTo('tesc_word_animation', 'off')) {
+				return this.sectionsDataLoadCompleted ? true : false;
+			} else {
+				return (this.sectionsDataLoadCompleted && this.wordAnimationCycleCompleted) ? true : false;
+			}
+		},
+
+		animationStatus() {
+			return this.cookieIsEqualTo('tesc_word_animation', 'off');
 		}
 	}
 });
