@@ -50,7 +50,7 @@
 				   {name: 'People',   href: '#app-people',		},
 				   {name: 'Projects', href: '#app-projects',	},
 				   {name: 'Contact',  href: '#app-contact',		},
-				   {name: 'Blog',     href: '#blog',			},
+				   {name: 'Blog',     href: '/blog',			}
 			   ],
 
 			   activeLink: 'About',
