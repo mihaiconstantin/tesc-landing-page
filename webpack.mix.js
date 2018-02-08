@@ -13,8 +13,7 @@ let mix = require('laravel-mix');
 
 // Lading page.
 mix.js('resources/assets/js/entries/index.js', 				'public/js')
-   .sass('resources/assets/sass/entries/index.scss', 		'public/css')
-   .options({ extractVueStyles: true });
+   .sass('resources/assets/sass/entries/index.scss', 		'public/css');
    
 
 // Project pages.
