@@ -50,7 +50,11 @@
 			<!-- Post Next Read. -->
 			<aside class="bg next-article text-center mx-auto col-8">
 				<p class="bp text-muted">Suggested read:</p>
-				<a href="#" class="bp"><span class="bk effect-underline">Long Title of the Next Post Goes Here</span></a>
+				@if (isset($post->next))
+					<a href="{{ $post->next->slug }}" class="bp"><span class="bk effect-underline">{{ $post->next->title }}</span></a>
+				@else
+					<p class="bp">No other posts in {{ $post->category->name }}</p>
+				@endif
 			</aside>
 
 			<hr class="col-8">

@@ -31,7 +31,8 @@ class BlogController extends Controller
     public function post($slug)
     {
         $post = Post::where('slug', '=', $slug)->firstOrFail();        
-        // Checkf the post category & pick the next post (by date) from within that category.
+        $next = Post::pickNext($post->category->id, $post->slug);
+        $post->next = $next;
         return view('post', compact('post'));
     }
 }

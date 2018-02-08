@@ -23,4 +23,25 @@ class Post extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+
+   	/**
+   	 * Fetch the next post (i.e., by creation date) from a specified
+   	 * category, and excluding a specifed slug.
+	 *
+	 * @param  int  $categoryId The id of the category to select the next post from.
+	 * @param  string  $slug The slug of the post to be excluded.
+     * @return mixed 
+   	 */
+    public static function pickNext(int $categoryId, string $slug) 
+    {
+		$post = self::where([
+				['category_id', '=', $categoryId],
+				['slug', '!=', $slug]
+			])
+			->orderBy('created_at', 'desc')
+			->first();
+
+		return $post;
+    }
 }
