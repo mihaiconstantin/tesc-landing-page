@@ -8,14 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon">
-    @include('partials._styles_project')
+    @include('partials._styles_post')
 
     <title>TESC - @yield('title')</title>
 </head>
 
 <body>
     @yield('content')
-    @include('partials._scripts_project')
+    @include('partials._scripts_post')
 </body>
 
 <!-- By Mihai Constantin - m.a.constantin@uvt.nl -->

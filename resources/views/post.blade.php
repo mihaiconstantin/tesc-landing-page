@@ -1,4 +1,4 @@
-@extends('templates.project')
+@extends('templates.post')
 
 
 @section('meta_seo')
