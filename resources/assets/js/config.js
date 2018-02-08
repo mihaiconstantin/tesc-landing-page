@@ -38,6 +38,6 @@ export function ScrollRevealConfig(ScrollRevealImport) {
 		viewFactor: 0.3,
 		duration: 900,
 		origin: 'top',
-		distance: '0px'
-	});	
+		distance: '100px'
+	});
 }
