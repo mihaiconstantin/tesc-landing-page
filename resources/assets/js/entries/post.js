@@ -18,7 +18,7 @@ require('../bootstrap');
  * Prepare the Vue.js, components, and other config files.
  */
 const Vue = require('vue');
-import { ProjectNavBar } from '../components';
+import { BlogNavBar } from '../components';
 
 
 /**
@@ -28,8 +28,8 @@ import { ProjectNavBar } from '../components';
  */
 
 const projectNavbar = new Vue({
-	el: '#project-navbar',
+	el: '#post-navbar',
 	components: {
-		'project-navbar': ProjectNavBar
+		'app-blog-navbar': BlogNavBar
 	}
 });

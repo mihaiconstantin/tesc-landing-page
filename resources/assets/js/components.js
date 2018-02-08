@@ -8,7 +8,7 @@ import Projects from './components/Projects.vue';
 import Contact from './components/Contact.vue';
 import Footer from './components/Footer.vue';
 
-import ProjectNavBar from './components/ProjectNavBar.vue';
+import BlogNavBar from './components/BlogNavBar.vue';
 
 
 export {
@@ -21,5 +21,5 @@ export {
 	Contact,
 	Footer,
 
-	ProjectNavBar
+	BlogNavBar
 }

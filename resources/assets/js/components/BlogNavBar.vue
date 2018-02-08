@@ -1,5 +1,5 @@
 <template>
-	<div id="app-main-navbar">
+	<div id="app-blog-navbar">
 
 		<nav class="br navbar navbar-expand-sm fixed-top navbar-light bg-app-navbar">
 			<a class="bg navbar-brand" href="#app-carousel">

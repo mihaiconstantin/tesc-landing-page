@@ -13,7 +13,7 @@
 
 @section('content')
 	<div id="post-navbar" class="bk">
-		<project-navbar :logo="{{ json_encode(setting('site.navbar_logo')) }}"></project-navbar>
+		<app-blog-navbar :logo="{{ json_encode(setting('site.navbar_logo')) }}"></app-blog-navbar>
 	</div>
 
 
