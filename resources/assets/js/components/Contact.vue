@@ -17,7 +17,7 @@
 						<form v-on:submit.prevent="sendMessage">
 							<div class="form-group">
 								<label for="email">Your email address:</label>
-								<input v-model.lazy.trim="contactFrom" type="email" class="form-control" id="email" placeholder="name@example.com" required>
+								<input v-model.lazy.trim="contactFrom" @keyup.once="updateRenderRecaptcha" type="email" class="form-control" id="email" placeholder="name@example.com" required>
 							</div>
 
 							<div class="form-group">
@@ -38,7 +38,7 @@
 								<textarea v-model.trim="contactMessage" class="form-control" id="message" rows="3" placeholder="Type in your message..." required></textarea>
 							</div>
 
-							<app-recaptcha @recaptchaResponse="updateRecaptchaResponse"></app-recaptcha>
+							<app-recaptcha @recaptchaResponse="updateRecaptchaResponse" :render-recaptcha="renderRecaptcha"></app-recaptcha>
 
 							<button :disabled="buttonDisabled" type="submit" class="btn btn-tesc">{{ buttonMessage }}</button>
 						</form>
@@ -85,7 +85,9 @@
 				contactTo: '',
 				contactOther: '',
 				contactMessage: '',
-				contactRecaptcha: false
+				contactRecaptcha: false,
+
+				renderRecaptcha: false
 			}
 		},
 
@@ -154,6 +156,11 @@
 
 			updateRecaptchaResponse(response) {
 				this.contactRecaptcha = response;
+			},
+
+
+			updateRenderRecaptcha() {
+				this.renderRecaptcha = true;
 			}
 		}
 	}
