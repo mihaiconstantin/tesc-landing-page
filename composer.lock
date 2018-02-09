@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6acbc2e0b7ffc6edcb28815219f8918c",
+    "content-hash": "6baf2a0f0a1d87fd0a25f04b82b6c84d",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1397,21 +1397,21 @@
         },
         {
             "name": "larapack/doctrine-support",
-            "version": "v0.1.4",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larapack/doctrine-support.git",
-                "reference": "02c9fc73324d9111bb03bb8b087653afde8972e0"
+                "reference": "16807bb3c6ca8ceb505e8d0caf6b48c2e5724e01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larapack/doctrine-support/zipball/02c9fc73324d9111bb03bb8b087653afde8972e0",
-                "reference": "02c9fc73324d9111bb03bb8b087653afde8972e0",
+                "url": "https://api.github.com/repos/larapack/doctrine-support/zipball/16807bb3c6ca8ceb505e8d0caf6b48c2e5724e01",
+                "reference": "16807bb3c6ca8ceb505e8d0caf6b48c2e5724e01",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.5",
-                "illuminate/support": "5.3.*|5.4.*|5.5.*|5.5.x-dev"
+                "illuminate/support": "5.3.*|5.4.*|5.5.*|5.6.*"
             },
             "type": "library",
             "autoload": {
@@ -1438,7 +1438,7 @@
                 "laravel",
                 "support"
             ],
-            "time": "2017-09-21T16:46:37+00:00"
+            "time": "2018-02-08T14:04:59+00:00"
         },
         {
             "name": "larapack/hooks",
@@ -1487,16 +1487,16 @@
         },
         {
             "name": "larapack/voyager-hooks",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larapack/voyager-hooks.git",
-                "reference": "3844566a245d7893dfda84410a2e0949f1dd0ab9"
+                "reference": "60ef8178b8b6ee9efebaadd94b8d5044ab4df360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larapack/voyager-hooks/zipball/3844566a245d7893dfda84410a2e0949f1dd0ab9",
-                "reference": "3844566a245d7893dfda84410a2e0949f1dd0ab9",
+                "url": "https://api.github.com/repos/larapack/voyager-hooks/zipball/60ef8178b8b6ee9efebaadd94b8d5044ab4df360",
+                "reference": "60ef8178b8b6ee9efebaadd94b8d5044ab4df360",
                 "shasum": ""
             },
             "require": {
@@ -1535,20 +1535,20 @@
                 "laravel",
                 "voyager"
             ],
-            "time": "2018-01-17T09:01:28+00:00"
+            "time": "2018-02-08T09:32:42+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.33",
+            "version": "v5.5.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ef7880e665390f999f4def7c9f78133636f973cf"
+                "reference": "1de7c0aec13eadbdddc2d1ba4019b064b2c6b966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ef7880e665390f999f4def7c9f78133636f973cf",
-                "reference": "ef7880e665390f999f4def7c9f78133636f973cf",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1de7c0aec13eadbdddc2d1ba4019b064b2c6b966",
+                "reference": "1de7c0aec13eadbdddc2d1ba4019b064b2c6b966",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1669,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-01-30T15:06:13+00:00"
+            "time": "2018-02-06T15:36:55+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3986,6 +3986,65 @@
             "time": "2017-10-19T19:58:43+00:00"
         },
         {
+            "name": "orangehill/iseed",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orangehill/iseed.git",
+                "reference": "c99a9f7bcc37dd853891acdc2e4d43bcf55a0404"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orangehill/iseed/zipball/c99a9f7bcc37dd853891acdc2e4d43bcf55a0404",
+                "reference": "c99a9f7bcc37dd853891acdc2e4d43bcf55a0404",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.3.8",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/filesystem": "5.x",
+                "laravel/framework": "^5.3.8",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orangehill\\Iseed\\IseedServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Orangehill\\Iseed": "src/"
+                },
+                "classmap": [
+                    "src/Orangehill/Iseed/Exceptions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tihomir Opacic",
+                    "email": "tihomir.opacic@orangehilldev.com"
+                }
+            ],
+            "description": "Generate a new Laravel database seed file based on data from the existing database table.",
+            "keywords": [
+                "artisan",
+                "generators",
+                "laravel",
+                "seed"
+            ],
+            "time": "2017-10-05T07:30:15+00:00"
+        },
+        {
             "name": "phar-io/manifest",
             "version": "1.0.1",
             "source": {
@@ -5389,7 +5448,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "orangehill/iseed": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
