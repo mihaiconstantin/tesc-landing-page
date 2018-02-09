@@ -1,33 +1,44 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Category;
 
 class CategoriesTableSeeder extends Seeder
 {
+
     /**
-     * Auto generated seed file.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        $category = Category::firstOrNew([
-            'slug' => 'category-1',
-        ]);
-        if (!$category->exists) {
-            $category->fill([
-                'name' => 'Category 1',
-            ])->save();
-        }
+        
 
-        $category = Category::firstOrNew([
-            'slug' => 'category-2',
-        ]);
-        if (!$category->exists) {
-            $category->fill([
-                'name' => 'Category 2',
-            ])->save();
-        }
+        \DB::table('categories')->delete();
+        
+        \DB::table('categories')->insert(array (
+            0 => 
+            array (
+                'id' => '1',
+                'parent_id' => NULL,
+                'order' => '1',
+                'name' => 'Uncategorized',
+                'slug' => 'uncategorized',
+                'created_at' => '2018-02-03 10:29:30',
+                'updated_at' => '2018-02-06 12:15:44',
+            ),
+            1 => 
+            array (
+                'id' => '2',
+                'parent_id' => NULL,
+                'order' => '2',
+                'name' => 'Projects',
+                'slug' => 'projects',
+                'created_at' => '2018-02-03 10:29:30',
+                'updated_at' => '2018-02-06 12:14:56',
+            ),
+        ));
+        
+        
     }
 }
