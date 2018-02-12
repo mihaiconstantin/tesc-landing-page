@@ -12,7 +12,7 @@
 const Vue = require('vue');
 const VueSmoothScroll = require('vue-smooth-scroll');
 import { WordAnimation, MainNavBar, Carousel, About, People, Projects, Contact, Footer } from '../components';
-import { ScrollRevealConfig } from '../config';
+import { ScrollRevealConfigLanding } from '../config';
 import { store } from '../store/store';
 import { cookieMixin } from '../mixins/cookieMixin';
 
@@ -50,7 +50,7 @@ const app = new Vue({
 	 watch: {
 	 	loadingCompleted() {
 	 		this.$nextTick(() => {
-	 			ScrollRevealConfig(window.ScrollReveal);
+	 			ScrollRevealConfigLanding(window.ScrollReveal);
 	 		});
 	 	},
 

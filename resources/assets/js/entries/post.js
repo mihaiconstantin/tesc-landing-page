@@ -18,7 +18,7 @@ require('../bootstrap');
  * Prepare the Vue.js, components, and other config files.
  */
 const Vue = require('vue');
-import { BlogNavBar } from '../components';
+import { BlogNavbar, BlogFooter } from '../components';
 
 
 /**
@@ -27,9 +27,19 @@ import { BlogNavBar } from '../components';
  * parts of it (i.e., widegets), e.g., the navigation bar.
  */
 
-const projectNavbar = new Vue({
+// Post navbar.
+new Vue({
 	el: '#post-navbar',
 	components: {
-		'app-blog-navbar': BlogNavBar
+		'app-blog-navbar': BlogNavbar
+	}
+});
+
+
+// Post footer.
+new Vue({
+	el: '#post-footer',
+	components: {
+		'app-blog-footer': BlogFooter
 	}
 });
