@@ -36,12 +36,17 @@ const actions = {
 
 		axios.get(`/api/${api}`).then(response => {
 			commit('SET_DATA', 	{ section: section, data: response.data });
+		}).catch((error) => {
+			console.log(`Api '${api}' error: ${error}`);			
 		});
 	},
 
 	fetchAllData: ({ commit }) => {
-		axios.get('/api/landing-page').then(response => {
+		axios.get('/api/landing-page')
+		.then(response => {
 			commit('SET_ALL_DATA', response.data);
+		}).catch((error) => {
+			console.log(`Api '/api/landing-page' error: ${error}`);
 		});
 	}
 };
