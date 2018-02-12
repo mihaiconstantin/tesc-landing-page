@@ -1,7 +1,7 @@
 /**
  * ScrollReveal config.
  */
-export function ScrollRevealConfig(ScrollRevealImport) {
+export function ScrollRevealConfigLanding(ScrollRevealImport) {
 	let sr = ScrollRevealImport({
 		reset: false
 	});
@@ -39,5 +39,18 @@ export function ScrollRevealConfig(ScrollRevealImport) {
 		duration: 900,
 		origin: 'top',
 		distance: '100px'
+	});
+}
+
+export function ScrollRevealConfigBlog(ScrollRevealImport) {
+	let sr = ScrollRevealImport({
+		reset: false
+	});
+
+	sr.reveal('.top-enter', {
+		viewFactor: 0.3,
+		duration: 900,
+		origin: 'top',
+		distance: '50px'
 	});
 }
