@@ -51,7 +51,7 @@
 					<!-- Post Body. -->
 					<section class="bp post-content col-11 mx-auto">{!! $post->body !!}</section>
 
-					<hr class="col-8">
+					<hr class="col-8 mx-auto">
 
 					<!-- Post Next Read. -->
 					<aside class="bp next-article text-center mx-auto col-8">
@@ -63,7 +63,7 @@
 						@endif
 					</aside>
 
-					<hr class="col-8">
+					<hr class="col-8 mx-auto">
 
 					<!-- Post Footer. -->
 					<div id="post-footer" class="bp col-12">
