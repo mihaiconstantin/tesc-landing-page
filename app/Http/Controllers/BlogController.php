@@ -17,9 +17,8 @@ class BlogController extends Controller
      */
 	public function index() 
 	{
-		return 'Blog home page.';
+		return view('blog');
 	}
-
 
 
     /**
@@ -35,4 +34,29 @@ class BlogController extends Controller
         $post->next = $next;
         return view('post', compact('post'));
     }
+
+
+    /**
+     * Show the posts associated with a give user id.
+     *
+     * @param  int      $id The user id.
+     * @return Response
+     */
+    public function author($id)
+    {
+        return view('blog');
+    }
+
+
+    /**
+     * Show the posts within a given category, identified by slug.
+     *
+     * @param  string   $slug The category slug.
+     * @return Response
+     */
+    public function category($slug)
+    {
+        return view('blog');
+    }
+
 }

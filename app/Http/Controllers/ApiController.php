@@ -8,6 +8,8 @@ use App\PeopleSection;
 use App\ProjectSection;
 use App\ContactMessage;
 use App\Subscription;
+use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
@@ -15,7 +17,7 @@ use GuzzleHttp\Client;
 class ApiController extends Controller
 {
 	/**
-	 * Fetch the data for all sections at once.
+	 * Fetch the data for all sections on the landing page at once.
 	 *
 	 * @return Response
 	 */
@@ -38,6 +40,40 @@ class ApiController extends Controller
 			'sectionProject' 		=> ProjectSection::getActiveRows(),
 			'siteSettingsVoyager'	=> $siteSettingsVoyager
 		);
+	}
+
+
+	/**
+	 * Fetch all published blog posts.
+	 *
+	 * @return Response
+	 */
+	public function posts() 
+	{
+		return Post::getFiltered($status = 'PUBLISHED', $order = 'desc');
+	}
+
+
+	/**
+	 * Fetch all published blog posts for a given user id.
+	 *
+	 * @return Response
+	 */
+	public function author($id)
+	{
+		return Post::where('author_id', '=', $id)->orderBy('created_at', 'desc')->with(['User', 'Category'])->get();
+	}
+
+
+	/**
+	 * Fetch all published blog posts for a given category slug.
+	 *
+	 * @return Response
+	 */
+	public function category($slug)
+	{
+		$categoryId = Category::identifySlug($slug);
+		return Post::where('category_id', '=', $categoryId)->orderBy('created_at', 'desc')->with(['User', 'Category'])->get();
 	}
 
 
