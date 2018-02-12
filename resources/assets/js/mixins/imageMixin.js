@@ -6,7 +6,7 @@ export const imageMixin = {
 		},
 
 		itExists(filePath) {
-			return filePath === null ? false : true;
+			return (filePath === null || filePath.length < 5) ? false : true;
 		},
 
 		isApproved(approvalStatus) {
