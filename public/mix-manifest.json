@@ -2,6 +2,8 @@
     "/js/index.js": "/js/index.js",
     "/css/index.css": "/css/index.css",
     "/css/post.css": "/css/post.css",
+    "/css/blog.css": "/css/blog.css",
     "/css/voyager-override.css": "/css/voyager-override.css",
+    "/js/blog.js": "/js/blog.js",
     "/js/post.js": "/js/post.js"
 }

@@ -16,9 +16,14 @@ mix.js('resources/assets/js/entries/index.js', 				'public/js')
    .sass('resources/assets/sass/entries/index.scss', 		'public/css');
    
 
-// Project pages.
+// Post pages.
 mix.js('resources/assets/js/entries/post.js', 			'public/js')
    .sass('resources/assets/sass/entries/post.scss',		'public/css');
+
+
+// Blog page.
+mix.js('resources/assets/js/entries/blog.js', 			'public/js')
+   .sass('resources/assets/sass/entries/blog.scss',		'public/css');
 
 
 // Voyager override.
