@@ -6,5 +6,23 @@
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+@mixin blue_shadow {
+	bow-shadow: 1px 1px 20px rgba(75, 156, 228, 0.88);
+}
 
+@mixin card_shadow_sm {
+	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+}
 
+@mixin card_shadow_md {
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+}
+
+@mixin tesc_button {
+    background-color: $app-bg-primary;
+    color: white;
+
+    &:hover {
+    	background-color: #33408b;
+    }
+}

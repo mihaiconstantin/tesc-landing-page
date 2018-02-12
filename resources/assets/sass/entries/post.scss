@@ -9,110 +9,83 @@ body {
 	// Removed padding from `body` and added it here to prevent 
 	// the pins to be hidden by `overflow: hidden` style.
 	padding-top: 105px;
-	position: relative;
 	overflow: hidden;
 
+	.post-main-content {
+		margin: 0 auto;
 
-	.logo {
-		margin: 0 auto 1rem auto;
-	}
-	
-	header, .post-content {
-		margin-bottom: 1.5rem;
-	}
 
-	article {
-		@include material_shadow_md;
-		margin: 0 auto 2rem auto;
-		padding: 1.5rem;
-		position: relative;
-	}
-
-	header {
-		.post-title {
+		article {
+			@include material_shadow_md;
+			margin: 0 auto 2rem auto;
+			padding: 1.5rem;
 			position: relative;
 		}
 
-		.post-title, .post-pubdate {
-			margin-bottom: 1rem;
-		}
 
-		.post-author, .post-featured-image {
-			margin-bottom: 0;
-		}
+		.post-content-row {
+			margin: 0 auto;
 
-		.post-pubdate {
-			display: block;
 
-			.post-category {
-				color: $app-darkblue;
-				font-weight: 400;
-			}
+			header {
+				margin-bottom: 1.5rem;
 
-		}
+				.post-title {
+					position: relative;
+				}
 
-		.post-author {
-			span {
-				color: $app-darkblue;
-				font-weight: 400;
-			}
-		}
+				.post-title, .post-details {
+					margin-bottom: 1rem;
+				}
 
-		.post-featured-image {
-			@include material_shadow_sm;
-		}
+				.post-author, .post-featured-image {
+					margin-bottom: 0;
+				}
 
-	}
+				.post-author span, .post-category {
+					color: $app-darkblue;
+					font-weight: 400;
+				}
 
-	.post-content {
-		margin-bottom: 3rem;
+				.post-author, .post-category {
+					a {
+						color: $app-black;
+						text-decoration: none;
+					}
+				}
 
-		* {
-			color: #212529 !important;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;			
-		}		
-	} 
-
-	.next-article {
-		p {
-			font-size: .8rem;
-			margin-bottom: 0;
-		}
-
-		a {
-			text-decoration: none;			
-		}
-	}
-
-	footer {
-		margin-top: 3rem;
-
-		.footer-copyright {
-			p {
-				font-size: .8rem;
-				margin-bottom: 0;
-				text-align: center;
-			}
-
-			a {
-				color: $app-black;
-				text-decoration: none;
-			}
-		}
-
-		.post-share {
-			margin-bottom: .5rem;
-
-			img {
-				width: 30px;
-				filter: grayscale(80%);
-				transition: all .5s;
-
-				&:hover {
-					filter: grayscale(0%);
-					transform:rotate(360deg);
+				.post-featured-image {
+					@include material_shadow_sm;
 				}
 			}
+
+
+			.post-content {
+				margin-bottom: 2rem;
+
+				* {
+					color: #212529 !important;
+					font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;			
+				}		
+			} 
+
+
+			.next-article {
+				p {
+					font-size: .8rem;
+					margin-bottom: 0;
+				}
+
+				a {
+					text-decoration: none;			
+				}
+			}
+
+
+			#post-footer {
+				margin-top: 2rem;
+			}
+
 		}
 	}
 }
