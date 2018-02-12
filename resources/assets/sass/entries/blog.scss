@@ -1,0 +1,27 @@
+@import '../bootstrap';
+
+
+body {
+	background-color: $app-white;
+}
+
+#app-blog-main {
+	padding-top: 105px;
+
+	.app-blog-content {
+		@include material_shadow_md;
+		padding: 1.5rem;
+		margin: 0 0 2rem 0;
+		position: relative;
+
+		// The reason why this is not set within the BlogFooter.vue component is because
+		// I am reusing the same component on post.blade.php. Hence, I want to be able
+		// to vary the margin given the contex.
+		#app-blog-footer {
+			margin-top: 1rem;
+		}
+
+	}
+
+}
+
