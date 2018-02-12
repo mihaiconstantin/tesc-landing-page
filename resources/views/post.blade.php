@@ -1,6 +1,7 @@
 @extends('templates.post')
 
 
+
 @section('meta_seo')
 	<meta name="description" content="{{ $post->meta_description }}">
 	<meta name="keywords" content="{{ $post->meta_keywords }}">
@@ -14,62 +15,64 @@
 @section('content')
 	<!-- Post NavBar. -->
 	<div id="post-navbar" class="bk">
-		<app-blog-navbar :logo="{{ json_encode(setting('site.navbar_logo')) }}"></app-blog-navbar>
+		<app-blog-navbar logo="{{ setting('site.navbar_logo') }}"></app-blog-navbar>
 	</div>
 
 	<!-- Post Content. -->
 	<main id="post-main" class="br container">
-		<article class="bk col-md-11">
-			<!-- Pins. -->
-			<i class="pin pin-top-left"></i>
-			<i class="pin pin-top-right"></i>
-			<i class="pin pin-bottom-left"></i>
-			<i class="pin pin-bottom-right"></i>
-
-			<!-- Post Header. -->
-			<header class="bg text-center">
-				<h1 class="bp post-title display-4">
-					{{ $post->title }}
-					@if ($post->featured) <span class="featured-ribbon ribbon-bottom-right">Featured</span> @endif
-				</h1>
-				<p class="bp post-author small text-muted">By <span>{{ $post->user->name }}</span></p>
-
-				<time class="bp post-pubdate small text-muted" datetime="{{ $post->created_at }}" pubdate>
-					{{ $post->created_at->diffForHumans() }} in 
-					<span class="post-category">{{ $post->category->name }}</span>
-				</time>
+		<div class="bg post-main-content row">
+			
+			<article class="bg col-md-11">
 				
-				<img src="{{ URL::asset('storage/' . $post->image) }}" alt="{{ $post->seo_title }}" class="bp post-featured-image img-fluid">
-			</header>
+				<!-- Pins. -->
+				<i class="pin pin-top-left"></i>
+				<i class="pin pin-top-right"></i>
+				<i class="pin pin-bottom-left"></i>
+				<i class="pin pin-bottom-right"></i>
+				<div class="br post-content-row row">
+					<!-- Post Header. -->
+					<header class="bp text-center col-12">
+						<h1 class="bs post-title display-4">
+							{{ $post->title }}
+							@if ($post->featured) <span class="featured-ribbon ribbon-bottom-right">Featured</span> @endif
+						</h1>
 
-			<!-- Post Body. -->
-			<section class="bg post-content col-11 mx-auto">{!! $post->body !!}</section>
+						<!-- <p class="bs post-author small text-muted">By <span>{{ $post->user->name }}</span></p> -->
+						<p class="bs post-author small text-muted">By <span><a href="{{ route('blog.author', ['id' => $post->user->id]) }}">{{ $post->user->name }}</a></span></p>
+						
+						<div class="bs post-details small text-muted">
+							<time class="bk post-pubdate" datetime="{{ $post->created_at['timestamp'] }}" pubdate>{{ $post->created_at['formated'] }}</time> 
+							in <span class="bk post-category"><a href="{{ route('blog.category', ['slug' => $post->category->slug]) }}">{{ $post->category->name }}</a></span>						
+						</div>
 
-			<hr class="col-8">
+						<img src="{{ URL::asset('storage/' . $post->image) }}" alt="{{ $post->seo_title }}" class="bs post-featured-image img-fluid">
+					</header>
 
-			<!-- Post Next Read. -->
-			<aside class="bg next-article text-center mx-auto col-8">
-				<p class="bp text-muted">Suggested read:</p>
-				@if (isset($post->next))
-					<a href="{{ $post->next->slug }}" class="bp"><span class="bk effect-underline">{{ $post->next->title }}</span></a>
-				@else
-					<p class="bp">No other posts in {{ $post->category->name }}</p>
-				@endif
-			</aside>
+					<!-- Post Body. -->
+					<section class="bp post-content col-11 mx-auto">{!! $post->body !!}</section>
 
-			<hr class="col-8">
+					<hr class="col-8">
 
-			<!-- Post Footer. -->
-			<footer class="bg">
-				<div class="bp post-share text-center">
-					<a href="https://twitter.com/intent/tweet?text=Check%20out&via=TilburgU_TESC&url={{ url()->current() }}" target="_blank">
-						<img src="{{ URL::asset('storage/' . setting('site.twitter_logo')) }}" alt="Twitter Icon @TilburgU_TESC" class="bs img-fluid">
-					</a>
+					<!-- Post Next Read. -->
+					<aside class="bp next-article text-center mx-auto col-8">
+						<p class="bp text-muted">Suggested read:</p>
+						@if (isset($post->next))
+							<a href="{{ $post->next->slug }}" class="bp"><span class="bk effect-underline">{{ $post->next->title }}</span></a>
+						@else
+							<p class="bp">No other posts in {{ $post->category->name }}</p>
+						@endif
+					</aside>
+
+					<hr class="col-8">
+
+					<!-- Post Footer. -->
+					<div id="post-footer" class="bp col-12">
+						<app-blog-footer twitter-icon="{{ setting('site.twitter_logo') }}"></app-blog-footer>
+					</div>
 				</div>
-				<div class="bp footer-copyright">
-					<p class="text-muted">Copyright &copy; 2017 <a href="{{ route('index') }}">Tilburg Experience Sampling Center</a></p>
-				</div>
-			</footer>
-		</article>			
+
+			</article>
+
+		</div>	
 	</main>
 @endsection
