@@ -1,8 +1,8 @@
 <template>
- 	<div id="app-loading" class="br row">
+ 	<div id="app-loading" class="border-radius row">
 
  		<div v-if="animationoff" class="bg loader col-6 mx-auto d-flex justify-content-center align-items-center">
-			<img src="img/loader-lightblue.png" alt="loading" class="bk img-fluid">
+			<img src="/img/loader-lightblue.png" alt="loading" class="bk img-fluid">
  		</div>
 
  		<div v-else class="bk words display-4 mx-auto">
@@ -126,7 +126,7 @@
 	@import "../../sass/mixins";
 
 	#app-loading {
-		margin-top: 5%;
+		margin: 5% auto 0 auto;
 		height: 290px;
 		padding: 50px 0;
 
