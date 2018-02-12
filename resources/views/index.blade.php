@@ -8,7 +8,7 @@
 	<template v-else>
 		<app-main-navbar></app-main-navbar>
 
-		<div class="container-fluid">
+		<div class="bs container-fluid">
 			<app-carousel></app-carousel>
 			<app-about></app-about>
 			<app-people></app-people>
