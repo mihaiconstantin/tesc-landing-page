@@ -52,7 +52,7 @@
 					</div>
 
 					<div id="contact-social" class="bp col-md-5 text-center">
-						<a class="twitter-timeline" data-width="" data-height="450" href="https://twitter.com/TilburgU_TESC?ref_src=twsrc%5Etfw">Tweets by TilburgU_TESC</a>
+						<a class="twitter-timeline" data-width="" data-height="450" href="https://twitter.com/TilburgU_TESC">Tweets by @TilburgU_TESC</a>
 					</div>
 
 				</div>
@@ -176,6 +176,14 @@
 			messageCharacterCount() {
 				this.messageRemainingCharacters = this.messageMaxLength - this.contactMessage.length;
 			}
+		},
+
+
+		mounted() {
+			this.$nextTick(() => {
+				// Forcing the Twitter widget to initialize (i.e., https://dev.twitter.com/web/javascript/initialization).
+				twttr.widgets.load();
+			});
 		}
 	}
 </script>
