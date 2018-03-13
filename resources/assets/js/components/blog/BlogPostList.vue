@@ -4,7 +4,7 @@
 		<!-- Post list. -->
 		<div class="row">
 			<div class="bs app-blog-posts card-columns col-12">
-				<app-blog-post v-for="post in filteredPosts" :post="post" :key="post.id"></app-blog-post>
+				<app-blog-post v-for="(post, index) in filteredPosts" :post="post" :key="index"></app-blog-post>
 			</div>
 		</div>
 
