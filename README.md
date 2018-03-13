@@ -45,10 +45,19 @@ php artisan voyager:install
 ```
 php artisan migrate:refresh --seed
 ```
-- start the developmental server (http://localhost:8000)
+- start the developmental server:
 ```
 php artisan serve
 ```
+
+### Usage
+
+- landing page: http://localhost:8000
+- dashboard: http://localhost:8000/admin
+	- login details:
+		- email: `admin@example.com` | password: `admin`
+		- email: `user@example.com` | password: `user`
+
 
 ### Things to do
 
