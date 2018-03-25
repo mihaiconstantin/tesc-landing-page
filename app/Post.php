@@ -30,7 +30,7 @@ class Post extends Model
      * This is automatically called by Eloquent when a model is retrieved (i.e., mutator).
      *
      * @param  string  $value The timestamp stored in the database indicating the creation date.
-     * @return string
+     * @return array
      */
     public function getCreatedAtAttribute($value)
     {
