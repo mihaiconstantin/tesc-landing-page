@@ -63,6 +63,13 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        // Added to ensure that all Voyager assets are served over HTTPS.
+        'voyager-https' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => '/storage',
+            'visibility' => 'public',
+        ],
     ],
 
 ];
