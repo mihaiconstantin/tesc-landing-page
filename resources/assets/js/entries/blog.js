@@ -11,7 +11,7 @@
 // Vue.js and components.
 const Vue = require('vue');
 import { WordAnimation, BlogNavbar, BlogPostList, BlogHeader, BlogFooter } from '../components';
-import { ScrollRevealConfigBlog } from '../config';
+// import { ScrollRevealConfigBlog } from '../config';
 import { store } from '../store/store';
 
 
@@ -46,7 +46,7 @@ const appBlog = new Vue({
 	watch : {
 		loadingCompleted() {
 			this.$nextTick(() => {
-				ScrollRevealConfigBlog(window.ScrollReveal);
+				// ScrollRevealConfigBlog(window.ScrollReveal);
 			});
 		}
 	},
