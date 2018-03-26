@@ -5,13 +5,14 @@
 			<span v-if="post.featured == 1" class="br app-blog-featured-star">&#9733;</span>
 
 			<!-- Post title. -->
-			<h5 class="bs app-post-title card-title">{{ post.title }}</h5>
+			<h5 class="bs app-post-title card-title text-center">{{ post.title }}</h5>
 
 			<!-- Post details. -->
-			<p class="bs app-post-details card-text">
+			<p class="bs app-post-details card-text text-center">
 				<small class="text-muted">
 					<time class="bp app-post-time" :datetime="post.created_at.timestamp" pubdate>{{ post.created_at.formated }}</time> in 
-					<span class="bp app-post-category"><a :href="makeUrl('category', post)">{{ post.category.name }}</a></span> by 
+					<span class="bp app-post-category"><a :href="makeUrl('category', post)">{{ post.category.name }}</a></span>
+					<br>by
 					<span class="bp app-post-author"><a :href="makeUrl('user', post)">{{ post.user.name }}</a></span>
 				</small>
 			</p>
