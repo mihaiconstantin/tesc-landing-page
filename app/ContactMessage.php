@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Mail\ContactMessageSent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 
 class ContactMessage extends Model
 {
@@ -24,15 +26,30 @@ class ContactMessage extends Model
 	 * @param array $data The data passed through the `POST` request.
 	 * @return bool The status of the query.
 	 */
-	public static function add($data) : bool {
+	public static function addAndSend($data) : bool {
 		$message = new ContactMessage();
 		$message->from 		= $data['from'];
 		$message->to 		= $data['to'];
 		$message->inbox 	= $data['inbox'];
 		$message->cc 		= $data['cc'];
 		$message->content 	= $data['content'];
-		$message->sent 		= $data['sent'];
-		return $message->save();
-	}
+        $message->save();
 
+		// Send the message to the parties involved.
+        Mail::to($message->inbox)
+            ->cc($message->cc)
+            ->send(new ContactMessageSent($message));
+
+        // Check if the mail has failed.
+        $hasFailures = count(Mail::failures()) > 0;
+
+        // If sending succeeded update the message row and inform Axios.
+        if ($hasFailures) {
+            return false;
+        } else {
+            $message->sent = 1;
+            $message->save();
+            return true;
+        }
+	}
 }

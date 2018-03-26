@@ -19,8 +19,8 @@ class ApiController extends Controller
 	/**
 	 * Fetch the data for all sections on the landing page at once.
 	 *
-	 * @return Response
-	 */
+	 * @return array
+     */
 	public function landingPage()
 	{
 		try {
@@ -68,8 +68,8 @@ class ApiController extends Controller
 	/**
 	 * Fetch all published blog posts for a given category slug.
 	 *
-	 * @return Response
-	 */
+	 * @return Post[]
+     */
 	public function category($slug)
 	{
 		$categoryId = Category::identifySlug($slug);
@@ -80,8 +80,8 @@ class ApiController extends Controller
 	/**
 	 * Store the data sent via the contact form on the landing page.
 	 *
-	 * @return Response
-	 */
+	 * @return string
+     */
 	public function storeMessage(Request $request)
 	{
 		// Performing Recaptach validation before everything else.
@@ -91,19 +91,14 @@ class ApiController extends Controller
 		// Prepare the data.
 		$recipients = PeopleSection::getByName($request->input('to'));
 
-		$data = array(
-			'from' 		=> $request->input('from'),
-			'to' 		=> $request->input('to'),
-			'inbox'		=> $recipients['inbox'],
-			'cc'		=> $recipients['cc'],
-			'content' 	=> $request->input('content'),
-			'sent'		=> 0
-		);
-
-		// TODO: Send email here... When done update the `sent` value.
-
-		// Store the message in the database.
-		$status = ContactMessage::add($data);
+		// Store the message in the database and send it automatically via the constructor.
+		$status = ContactMessage::addAndSend([
+            'from' 		=> $request->input('from'),
+            'to' 		=> $request->input('to'),
+            'inbox'		=> $recipients['inbox'],
+            'cc'		=> $recipients['cc'],
+            'content' 	=> $request->input('content'),
+        ]);
 
 		// Return a response back to Axios.
 		return $status ? 'ok' : 'nok';
