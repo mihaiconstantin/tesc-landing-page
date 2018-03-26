@@ -50,6 +50,25 @@ php artisan migrate:refresh --seed
 php artisan serve
 ```
 
+### Additional details:
+You may also need to update the `Recaptcha` site key with your own:
+ - at this moment the site key is stored within the `sitekey` property in `resources/assets/js/components/Recaptcha.vue`.
+ - locate the following and update it with your own site key:
+```javascript
+data() {
+    return {
+        sitekey: 'your_own_site_key_here',
+        ...
+    }
+}
+```
+- next, you need to recompile the public assets. To do so, navigate to the project root (i.e., `tesc-landing-page/`) and run:
+```bash
+npm install
+npm run prod
+```
+
+
 ### Usage
 
 - landing page: http://localhost:8000
@@ -70,6 +89,7 @@ php artisan serve
 	- fetch the posts from the `API` as the user scrolls down the page (i.e., to reduce upfront load time)
 	- reduce the `API` data size by limiting the collection to strictly what is needed (e.g., discard the post body---not needed in `BlogPost.vue`)
 	- fix the card layout bugs: 
+	    - **important: cards cannot be clicked**
 		- cards don't take the empty space is nearby columns after filtering (i.e., in Chrome)
 		- top card from middle row turns blank on `1920x1080` resolution as the user starts scrolling (i.e., in Chrome)
 	- server some of the files from a `CDN`	
