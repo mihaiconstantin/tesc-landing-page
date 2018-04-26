@@ -26,6 +26,7 @@ class ContactMessageSent extends Mailable
     }
 
 
+
     /**
      * Build the message.
      *
@@ -33,7 +34,7 @@ class ContactMessageSent extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Message for TESC')
-            ->view('emails.contact.sent');
+        return $this->subject('New TESC message (website)')
+                    ->view('emails.contact.sent');
     }
 }

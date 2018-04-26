@@ -11,7 +11,6 @@ use App\Subscription;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 
 
 class ApiController extends Controller
@@ -43,6 +42,7 @@ class ApiController extends Controller
 	}
 
 
+
 	/**
 	 * Fetch all published blog posts.
 	 *
@@ -54,21 +54,25 @@ class ApiController extends Controller
 	}
 
 
-	/**
-	 * Fetch all published blog posts for a given user id.
-	 *
-	 * @return Response
-	 */
+
+    /**
+     * Fetch all published blog posts for a given user id.
+     *
+     * @param $id
+     * @return Post[]
+     */
 	public function author($id)
 	{
 		return Post::where('author_id', '=', $id)->orderBy('created_at', 'desc')->with(['User', 'Category'])->get();
 	}
 
 
-	/**
-	 * Fetch all published blog posts for a given category slug.
-	 *
-	 * @return Post[]
+
+    /**
+     * Fetch all published blog posts for a given category slug.
+     *
+     * @param $slug
+     * @return Post[]
      */
 	public function category($slug)
 	{
@@ -77,27 +81,25 @@ class ApiController extends Controller
 	}
 
 
-	/**
-	 * Store the data sent via the contact form on the landing page.
-	 *
-	 * @return string
+
+    /**
+     * Store the data sent via the contact form on the landing page.
+     *
+     * @param Request $request
+     * @return string
      */
 	public function storeMessage(Request $request)
 	{
-		// Performing Recaptach validation before everything else.
+		// Performing Recaptcha validation before everything else.
 		$recaptchaStatus = $this->validateRecaptcha($request->input('recaptcha'), $request->ip());
 		if (!$recaptchaStatus) { return 'robot'; }
-
-		// Prepare the data.
-		$recipients = PeopleSection::getByName($request->input('to'));
 
 		// Store the message in the database and send it automatically via the constructor.
 		$status = ContactMessage::addAndSend([
             'from' 		=> $request->input('from'),
             'to' 		=> $request->input('to'),
-            'inbox'		=> $recipients['inbox'],
-            'cc'		=> $recipients['cc'],
             'content' 	=> $request->input('content'),
+            'inbox'		=> setting('site.contact_person')
         ]);
 
 		// Return a response back to Axios.
@@ -105,11 +107,13 @@ class ApiController extends Controller
 	}
 
 
-	/**
-	 * Store the data sent via the subscription form on the landing page.
-	 *
-	 * @return Response
-	 */
+
+    /**
+     * Store the data sent via the subscription form on the landing page.
+     *
+     * @param Request $request
+     * @return string
+     */
 	public function storeSubscription(Request $request)
 	{
 		// Prepare the data.

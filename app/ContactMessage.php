@@ -6,6 +6,7 @@ use App\Mail\ContactMessageSent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
 
+
 class ContactMessage extends Model
 {
 	/**
@@ -20,8 +21,10 @@ class ContactMessage extends Model
 	}
 
 
+
 	/**
-	 * Add a new row to the  'contact_sections' table.
+	 * Add a new row to the  'contact_sections' table and
+     * send the email via the Mailgun api.
 	 *
 	 * @param array $data The data passed through the `POST` request.
 	 * @return bool The status of the query.
@@ -31,14 +34,11 @@ class ContactMessage extends Model
 		$message->from 		= $data['from'];
 		$message->to 		= $data['to'];
 		$message->inbox 	= $data['inbox'];
-		$message->cc 		= $data['cc'];
 		$message->content 	= $data['content'];
         $message->save();
 
 		// Send the message to the parties involved.
-        Mail::to($message->inbox)
-            ->cc($message->cc)
-            ->send(new ContactMessageSent($message));
+        Mail::to($message->inbox)->send(new ContactMessageSent($message));
 
         // Check if the mail has failed.
         $hasFailures = count(Mail::failures()) > 0;

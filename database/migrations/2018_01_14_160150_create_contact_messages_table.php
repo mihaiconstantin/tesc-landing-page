@@ -19,7 +19,7 @@ class CreateContactMessagesTable extends Migration
             $table->text('content');
             $table->string('to');
             $table->string('inbox');
-            $table->string('cc');
+            $table->string('cc')->nullable();
             $table->boolean('sent')->default(0);
             $table->timestamps();
         });

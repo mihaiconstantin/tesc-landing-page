@@ -112,14 +112,14 @@
 			},
 
 			buttonDisabled() {
-				return this.contactRecaptcha ? false : true;
+				return !this.contactRecaptcha;
 			}
 		},
 
 
 		watch: {
 			contactTo() {
-				if (this.contactTo != 'other') { this.contactOther = ''; }
+				if (this.contactTo !== 'other') { this.contactOther = ''; }
 			},
 
 			contactFrom() {
@@ -133,7 +133,7 @@
 				// Prepare the request data.
 				let requestData = {
 					from: this.contactFrom,
-					to: this.contactTo == 'other' ? this.contactOther : this.contactTo,
+					to: this.contactTo === 'other' ? this.contactOther : this.contactTo,
 					content: this.contactMessage.trim(),
 					recaptcha: this.contactRecaptcha
 				}
