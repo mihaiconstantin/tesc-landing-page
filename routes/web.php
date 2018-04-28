@@ -16,15 +16,24 @@ Route::get('/', function () {
 })->name('index');
 
 
-/**
- * Routes that are called to populate the Vuex Store and update the database.
+/*
+ * Routes that are called asynchronously to populate the Vuex Store and update the database.
  */
 Route::get('api/landing-page', 			'ApiController@landingPage')		->name('api.landingPage');
 Route::get('api/posts', 				'ApiController@posts')				->name('api.posts');
 Route::get('api/posts/author/{id}', 	'ApiController@author')				->name('api.posts.author');
 Route::get('api/posts/category/{slug}', 'ApiController@category')			->name('api.posts.category');
+
+// TODO: Create a separate controller for this one.
 Route::post('api/message', 				'ApiController@storeMessage')		->name('api.storeMessage');
-Route::post('api/subscription', 		'ApiController@storeSubscription')	->name('api.storeSubscription');
+
+
+/*
+ * Subscription Controller routes.
+ */
+Route::post('subscription/store',               'SubscriptionController@store')	        ->name('subscription.store');
+Route::get('subscription/subscribe/{token}',    'SubscriptionController@subscribe')     ->name('subscription.subscribe');
+Route::get('subscription/unsubscribe/{token}',  'SubscriptionController@unsubscribe')   ->name('subscription.unsubscribe');
 
 
 /*

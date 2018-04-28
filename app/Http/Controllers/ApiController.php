@@ -7,7 +7,6 @@ use App\AboutSection;
 use App\PeopleSection;
 use App\ProjectSection;
 use App\ContactMessage;
-use App\Subscription;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
@@ -107,29 +106,4 @@ class ApiController extends Controller
 	}
 
 
-
-    /**
-     * Store the data sent via the subscription form on the landing page.
-     *
-     * @param Request $request
-     * @return string
-     */
-	public function storeSubscription(Request $request)
-	{
-		// Prepare the data.
-		$data = array(
-			'email' => $request->email,
-			'token' => str_random(50),
-			'ip' => $request->ip()
-		);
-
-		// Create subscription.
-		$status = Subscription::add($data);
-
-		// Send the verification email.
-		// ...
-
-		// Return a response back to Axios.
-		return $status ? 'ok' : 'nok';
-	}
 }

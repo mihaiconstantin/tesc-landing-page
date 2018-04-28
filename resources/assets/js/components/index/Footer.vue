@@ -69,7 +69,7 @@
 					showForm: true,
 					showMessage: false,
 					successText: '&#x2714; We sent you a confirmation message.',
-					errorText: '&#x274C; We could not add you. Please try again later.',
+					errorText: '&#x274C; We could not add you. Please try again later with a different address.',
 					status: true,
 					buttonOn: true,
 					buttonText: 'Keep me informed!',
@@ -94,19 +94,19 @@
 			subscribe() {
 				// Disable the submit button.
 				this.ui.buttonOn = false;
-				this.ui.buttonText = 'Adding...';
+				this.ui.buttonText = 'Adding you...';
 
 				// Send the Axios request.
-				axios.post('/api/subscription', { email: this.subscriberEmail })
+				axios.post('/subscription/store', { email: this.subscriberEmail })
 					 .then((response) => {
-					 	if (response.status != 200 || response.data != 'ok') {
+					 	if (response.status !== 200 || response.data !== 'ok') {
 					 		this.ui.status = false;
 					 	}
 					 	this.ui.showForm = false;
 					 	this.ui.showMessage = true;
 					 })
 					 .catch((error) => {
-					 	console.log(`An error occured: ${error}.`);
+					 	console.log(`An error occurred: ${error}.`);
 				 		this.ui.status = false;
 					 	this.ui.showForm = false;
 					 	this.ui.showMessage = true;

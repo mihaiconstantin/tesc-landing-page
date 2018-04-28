@@ -1,0 +1,36 @@
+@import '../bootstrap';
+
+
+body {
+	background-color: $app-white;
+}
+
+
+#subscription-logo {
+	margin: 105px 0 2rem 0;
+}
+
+
+#subscription-main {
+	.subscription-main_group_content_group {
+		@include material_shadow_md;
+		padding: 1.5rem;
+
+		.subscription-action_title,
+		.subscription-action_message,
+		.subscription-action_button {
+			padding-bottom: 1.5rem;
+		}
+
+		.subscription-action_button {
+			.btn {
+				@include tesc_button;
+			}
+		}
+
+		.subscription-action_ps_heart {
+			color: red;
+		}
+	}
+}
+
