@@ -91,7 +91,7 @@
 			@include card_shadow_md;
 
 			.app-blog-featured-star {
-				color: $app-organge;
+				color: $app-orange;
 			}
 		}
 

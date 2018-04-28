@@ -71,7 +71,7 @@
 	}
 
 	.btn-app-color {
-		background-color: $app-organge;
+		background-color: $app-orange;
 		color: $app-darkblue;
 		margin: 1rem 0 0 0;
 	}
@@ -100,7 +100,7 @@
 		@include material_shadow_md;
 		
 		h2 {
-			color: $app-organge;
+			color: $app-orange;
 		}
 	}
 

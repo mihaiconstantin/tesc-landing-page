@@ -10,7 +10,7 @@
 
 
 @section('title', $post->title)
-	
+
 
 @section('content')
 	<!-- Post NavBar. -->
@@ -21,15 +21,17 @@
 	<!-- Post Content. -->
 	<main id="post-main" class="br container">
 		<div class="bg post-main-content row">
-			
+
 			<article class="bg col-md-11">
-				
+
 				<!-- Pins. -->
 				<i class="pin pin-top-left"></i>
 				<i class="pin pin-top-right"></i>
 				<i class="pin pin-bottom-left"></i>
 				<i class="pin pin-bottom-right"></i>
-				<div class="br post-content-row row">
+
+                <!-- Post content. -->
+                <div class="br post-content-row row">
 					<!-- Post Header. -->
 					<header class="bp text-center col-12">
 						<h1 class="bs post-title display-4">
@@ -39,10 +41,10 @@
 
 						<!-- <p class="bs post-author small text-muted">By <span>{{ $post->user->name }}</span></p> -->
 						<p class="bs post-author small text-muted">By <span><a href="{{ route('blog.author', ['id' => $post->user->id]) }}">{{ $post->user->name }}</a></span></p>
-						
+
 						<div class="bs post-details small text-muted">
-							<time class="bk post-pubdate" datetime="{{ $post->created_at['timestamp'] }}" pubdate>{{ $post->created_at['formated'] }}</time> 
-							in <span class="bk post-category"><a href="{{ route('blog.category', ['slug' => $post->category->slug]) }}">{{ $post->category->name }}</a></span>						
+							<time class="bk post-pubdate" datetime="{{ $post->created_at['timestamp'] }}" pubdate>{{ $post->created_at['formated'] }}</time>
+							in <span class="bk post-category"><a href="{{ route('blog.category', ['slug' => $post->category->slug]) }}">{{ $post->category->name }}</a></span>
 						</div>
 
 						<img src="{{ URL::asset('storage/' . $post->image) }}" alt="{{ $post->seo_title }}" class="bs post-featured-image img-fluid">
@@ -73,6 +75,6 @@
 
 			</article>
 
-		</div>	
+		</div>
 	</main>
 @endsection

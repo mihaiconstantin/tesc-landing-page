@@ -8,8 +8,9 @@
  */
 
 .pin {
-	background-color: #aaa;
-	background-image: linear-gradient(left, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+	//background-color: #aaa;
+	//background-image: linear-gradient(left, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+	background: #aaa linear-gradient(to left, hsla(0, 0%, 100%, .2), hsla(0, 0%, 0%, .2));
 	display: block;
 	height: 2em;
 	margin: -1em -.05em;
@@ -17,8 +18,9 @@
 	width: .1em;
 
 	&:after {
-		background-color: $app-organge;
-		background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+		//background-color: $app-orange;
+		//background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.2), hsla(0,0%,0%,.2));
+		background: $app-orange radial-gradient(circle at 25% 25%, hsla(0, 0%, 100%, .2), hsla(0, 0%, 0%, .2));
 		border-radius: 50%;
 		box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
 					inset .2em .2em .2em hsla(0,0%,100%,.2),
@@ -83,7 +85,7 @@
 	padding: .3rem .5rem;
 	font-size: 1.3rem;
 	color: #fff;
-	background: $app-organge;
+	background: $app-orange;
 
 	&:before {
 		content: '';
