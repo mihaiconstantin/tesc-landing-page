@@ -4,9 +4,9 @@
 
 - clone the repository:
 ```
-git@github.com:mihaiconstantin/tesc-landing-page.git
+git clone git@github.com:mihaiconstantin/tesc-landing-page.git
 ```
-- install `php` packages:
+- install the `php` packages:
 ```
 cd tesc-landing-page
 composer install
@@ -19,23 +19,27 @@ cp .env.example env
 ```
 php artisan key:generate
 ```
-- create the database:
+- update the following entries in the `.env` according to your needs:
 ```
-cd database
-touch tesc.sqlite
-```
-- update the following entries in the `.env` file:
-```
-APP_URL=http://localhost:8000
-DB_CONNECTION=sqlite
+DB_CONNECTION=mysql
+DB_DATABASE=your_database_name_or_path
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
 
-// Absolute path to the database
-DB_DATABASE=/var/www/tesc-landing-page/database/tesc.sqlite
-```
-- add the following entries in the `.env` file:
-```
-GOOGLE_RECAPTCHA_SECRET=<Add your secret token here>
-GOOGLE_RECAPTCHA_BASE_URI=https://www.google.com/recaptcha/api/siteverify
+MAIL_DRIVER=mailgun
+MAIL_HOST=smtp.mailgun.org
+MAIL_USERNAME=your_email_service_username
+MAIL_PASSWORD=your_email_service_password
+
+MAILGUN_DOMAIN=mailgun_domain
+MAILGUN_SECRET=mailgun_secret_key
+
+MAIL_FROM_ADDRESS=mail_from_address
+MAIL_FROM_NAME=mail_from_name
+FALLBACK_CONTACT_PERSON=fallback_email_address
+
+GOOGLE_RECAPTCHA_SECRET=recaptcha_secret
+GOOGLE_RECAPTCHA_SITE_KEY=recaptcha_site_key
 ```
 - install `Voyager`:
 ```
@@ -50,25 +54,6 @@ php artisan migrate:refresh --seed
 php artisan serve
 ```
 
-### Additional details:
-You may also need to update the `Recaptcha` site key with your own:
- - at this moment the site key is stored within the `sitekey` property in `resources/assets/js/components/Recaptcha.vue`.
- - locate the following and update it with your own site key:
-```javascript
-data() {
-    return {
-        sitekey: 'your_own_site_key_here',
-        ...
-    }
-}
-```
-- next, you need to recompile the public assets. To do so, navigate to the project root (i.e., `tesc-landing-page/`) and run:
-```bash
-npm install
-npm run prod
-```
-
-
 ### Usage
 
 - landing page: http://localhost:8000
@@ -81,15 +66,9 @@ npm run prod
 ### Things to do
 
 - add cookie consent
-- add subscription validation
-- send emails for:
-	- contact form
-	- subscription form
 - improve the blog page:
 	- fetch the posts from the `API` as the user scrolls down the page (i.e., to reduce upfront load time)
 	- reduce the `API` data size by limiting the collection to strictly what is needed (e.g., discard the post body---not needed in `BlogPost.vue`)
 	- fix the card layout bugs: 
-	    - **important: cards cannot be clicked**
 		- cards don't take the empty space is nearby columns after filtering (i.e., in Chrome)
-		- top card from middle row turns blank on `1920x1080` resolution as the user starts scrolling (i.e., in Chrome)
 	- server some of the files from a `CDN`	
