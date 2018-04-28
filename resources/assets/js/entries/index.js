@@ -43,7 +43,7 @@ const app = new Vue({
 	
 
 	beforeCreate () {
-		this.$store.dispatch('fetchAllData'); 
+		this.$store.dispatch('fetchAllData');
 	},
 
 
@@ -70,7 +70,7 @@ const app = new Vue({
 
 		wordAnimationCycleCompleted() {
 			// Checking if all words were animated (i.e., one cycle was completed).
-			return this.$store.state.wordAnimation.cycleCount > 0 ? true : false;
+			return this.$store.state.wordAnimation.cycleCount > 0;
 		},
 
 		loadingCompleted() {

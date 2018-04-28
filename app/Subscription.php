@@ -94,7 +94,7 @@ class Subscription extends Model
             ]);
         }
 
-        // Send the mail and return the status (true or false).
+        // Send the mail and return the status (i.e., true or false).
         return Subscription::sendVerificationMail($subscription);
     }
 }
