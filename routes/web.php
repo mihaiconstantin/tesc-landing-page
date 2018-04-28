@@ -24,8 +24,11 @@ Route::get('api/posts', 				'ApiController@posts')				->name('api.posts');
 Route::get('api/posts/author/{id}', 	'ApiController@author')				->name('api.posts.author');
 Route::get('api/posts/category/{slug}', 'ApiController@category')			->name('api.posts.category');
 
-// TODO: Create a separate controller for this one.
-Route::post('api/message', 				'ApiController@storeMessage')		->name('api.storeMessage');
+
+/*
+ * Contact Controller routes.
+ */
+Route::post('contact/store', 'ContactController@store')->name('contact.store');
 
 
 /*

@@ -143,7 +143,7 @@
 				this.buttonMessage = 'Sending your message...';
 
 				// Send the Axios request. At the end update the status the notice based on server response.
-				axios.post('/api/message', requestData)
+				axios.post('/contact/store', requestData)
 					 .then((response) => {
 					 	if (response.status === 200 && response.data === 'ok') {
 		 					this.buttonMessage = 'Message sent!';
@@ -155,7 +155,7 @@
 						this.noticeShow = true;
 					 })
 					 .catch((error) => {
-					 	console.log(`An error occured: ${error}.`);
+					 	console.log(`An error occurred: ${error}.`);
 					 	this.buttonMessage = 'Message not sent!';
 						this.noticeSuccess = false;
 						this.noticeShow = true;

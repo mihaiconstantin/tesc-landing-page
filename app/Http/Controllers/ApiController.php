@@ -27,16 +27,22 @@ class ApiController extends Controller
 				'footer_logo' 		=> setting('site.footer_logo'),
 				'terms_conditions' 	=> setting('site.terms_conditions')
 			);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			$siteSettingsVoyager = $e->getMessage();
 		}
+
+		$clientKeys = array(
+            'recaptcha' => env('GOOGLE_RECAPTCHA_SITE_KEY'),
+            // Other keys to be added here.
+        );
 
 		return array(
 			'sectionCarousel' 		=> CarouselSection::getActiveRows(),
 			'sectionAbout' 			=> AboutSection::getActiveRows(),
 			'sectionPeople' 		=> PeopleSection::getActiveRows(),
 			'sectionProject' 		=> ProjectSection::getActiveRows(),
-			'siteSettingsVoyager'	=> $siteSettingsVoyager
+			'siteSettingsVoyager'	=> $siteSettingsVoyager,
+            'clientKeys'            => $clientKeys
 		);
 	}
 
@@ -78,32 +84,5 @@ class ApiController extends Controller
 		$categoryId = Category::identifySlug($slug);
 		return Post::where('category_id', '=', $categoryId)->orderBy('created_at', 'desc')->with(['User', 'Category'])->get();
 	}
-
-
-
-    /**
-     * Store the data sent via the contact form on the landing page.
-     *
-     * @param Request $request
-     * @return string
-     */
-	public function storeMessage(Request $request)
-	{
-		// Performing Recaptcha validation before everything else.
-		$recaptchaStatus = $this->validateRecaptcha($request->input('recaptcha'), $request->ip());
-		if (!$recaptchaStatus) { return 'robot'; }
-
-		// Store the message in the database and send it automatically via the constructor.
-		$status = ContactMessage::addAndSend([
-            'from' 		=> $request->input('from'),
-            'to' 		=> $request->input('to'),
-            'content' 	=> $request->input('content'),
-            'inbox'		=> setting('site.contact_person')
-        ]);
-
-		// Return a response back to Axios.
-		return $status ? 'ok' : 'nok';
-	}
-
 
 }

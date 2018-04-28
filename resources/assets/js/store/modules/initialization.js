@@ -9,7 +9,8 @@ const state = {
 	sectionPeople: null,
 	sectionProject: null,
 	sectionContact: null,
-	siteSettingsVoyager: null
+	siteSettingsVoyager: null,
+	clientKeys: null
 };
 
 
@@ -25,6 +26,7 @@ const mutations = {
 		state.sectionProject = payload.sectionProject;
 		state.sectionContact = payload.sectionPeople.map(person => person.name ).sort(); /* + */ state.sectionContact.push('other');
 		state.siteSettingsVoyager = payload.siteSettingsVoyager;
+		state.clientKeys = payload.clientKeys;
 	}
 };
 

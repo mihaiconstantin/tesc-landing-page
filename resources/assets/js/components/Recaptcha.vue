@@ -24,11 +24,18 @@
 			'renderRecaptcha'
 		],
 
+
 		data() {
 			return {
-				sitekey: '6LdDjUMUAAAAAEJEvga3R4UOc5ea9Ft0U3vF4VNl',
 				placeholderId: 'grecaptcha',
 				widgetId: null
+			}
+		},
+
+
+		computed: {
+		    siteKey() {
+		        return this.$store.state.initialization.clientKeys.recaptcha;
 			}
 		},
 
@@ -45,7 +52,7 @@
 		methods: {
 			render() {
 				this.widgetId = window.grecaptcha.render(this.placeholderId, {
-					sitekey: this.sitekey,
+					sitekey: this.siteKey,
 					callback: (response) => {
 						this.$emit('recaptchaResponse', response);
 					}
