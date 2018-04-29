@@ -41,13 +41,9 @@ FALLBACK_CONTACT_PERSON=fallback_email_address
 GOOGLE_RECAPTCHA_SECRET=recaptcha_secret
 GOOGLE_RECAPTCHA_SITE_KEY=recaptcha_site_key
 ```
-- install `Voyager`:
+- migrate and seed the database: 
 ```
-php artisan voyager:install
-```
-- refresh the migrations and seed the database: 
-```
-php artisan migrate:refresh --seed
+php artisan migrate --seed
 ```
 - start the developmental server:
 ```
