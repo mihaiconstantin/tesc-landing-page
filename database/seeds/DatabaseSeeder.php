@@ -18,11 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactMessagesTableSeeder::class);
         $this->call(SubscriptionsTableSeeder::class);
 
-        $this->call(UsersTableSeeder::class);
-        $this->call(PagesTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(PostsTableSeeder::class);
-
         $this->call(DataTypesTableSeeder::class);
         $this->call(DataRowsTableSeeder::class);
 
@@ -32,6 +27,11 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
+
+        $this->call(UsersTableSeeder::class);
+        $this->call(PagesTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
 
         $this->call(SettingsTableSeeder::class);
     }
