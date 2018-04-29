@@ -636,6 +636,15 @@ class PermissionRoleTableSeeder extends Seeder
                 'permission_id' => '80',
                 'role_id' => '2',
             ),
+            /*
+             * Read the comment at the bottom of the file `PermissionTableSeeder.php`
+             * and this strange permission id will immediately make sense.
+             */
+            23 =>
+            array(
+                'permission_id' => '999',
+                'role_ud' => '1'
+            ),
         ));
         
         
