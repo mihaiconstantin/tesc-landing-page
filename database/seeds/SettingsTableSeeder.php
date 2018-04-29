@@ -187,6 +187,17 @@ class SettingsTableSeeder extends Seeder
                 'order' => '10',
                 'group' => 'Site',
             ),
+            15 =>
+            array (
+                'id' => '18',
+                'key' => 'site.contact_person',
+                'display_name' => 'Contact Person',
+                'value' => 'admin@example.com',
+                'details' => NULL,
+                'type' => 'text',
+                'order' => '12',
+                'group' => 'Site',
+            ),
         ));
         
         
