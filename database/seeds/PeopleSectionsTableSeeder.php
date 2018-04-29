@@ -21,7 +21,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'First Founder',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magnam, minima molestiae obcaecati quas quis totam voluptas voluptates? Consequuntur illo magnam natus quae sunt temporibus totam ullam veniam.',
-                'email' => 'founder1@email.com',
+                'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/95ycBZjiWH72UwqToqDO.png',
                 'role' => 'founder',
@@ -34,7 +34,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Second Founder',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magnam, minima molestiae obcaecati quas quis totam voluptas voluptates? Consequuntur illo magnam natus quae sunt temporibus totam ullam veniam.',
-                'email' => 'founder2@email.com',
+                'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/95ycBZjiWH72UwqToqDO.png',
                 'role' => 'founder',
@@ -47,7 +47,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 1',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee1@email.com',
+                'gender' => 'male',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/95ycBZjiWH72UwqToqDO.png',
                 'role' => 'employee',
@@ -60,7 +60,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 2',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee2@email.com',
+                'gender' => 'male',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/eeSfRMRT6EpzqbUYyFnn.png',
                 'role' => 'employee',
@@ -73,7 +73,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 3',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee3@email.com',
+                'gender' => 'male',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/MozvbiThbAixp2vAr12O.png',
                 'role' => 'employee',
@@ -86,7 +86,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 4',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee4@email.com',
+                'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/If4PdsAPCX1omHmbpRdM.png',
                 'role' => 'employee',
@@ -99,7 +99,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 5',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee5@email.com',
+                'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/s0fmAOFZRmlc5E0ayycz.png',
                 'role' => 'employee',
@@ -112,7 +112,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 6',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee6@email.com',
+                'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/YPgO0zVqL8BvgowUJKZe.png',
                 'role' => 'employee',
@@ -125,7 +125,7 @@ class PeopleSectionsTableSeeder extends Seeder
             array (
                 'name' => 'Employee 7',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
-                'email' => 'employee7@email.com',
+                'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/N9tkZiFgjdqqZ9w6IYyL.png',
                 'role' => 'employee',
