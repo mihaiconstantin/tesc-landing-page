@@ -31,7 +31,7 @@ class Category extends Model
 	 * @return 	int 			The id associated to the prvided slug.
 	 */
 	public static function identifySlug($slug) {
-		return self::where('slug', '=', $slug)->value('id');
+		return self::where('slug', $slug)->value('id');
 	}
 
 }
