@@ -39,7 +39,7 @@ class ApiController extends Controller
 		return array(
 			'sectionCarousel' 		=> CarouselSection::getActiveRows(),
 			'sectionAbout' 			=> AboutSection::getActiveRows(),
-			'sectionPeople' 		=> PeopleSection::getActiveRows(),
+			'sectionPeople' 		=> PeopleSection::forLandingPage(),
 			'sectionProject' 		=> ProjectSection::getActiveRows(),
 			'siteSettingsVoyager'	=> $siteSettingsVoyager,
             'clientKeys'            => $clientKeys
@@ -51,7 +51,7 @@ class ApiController extends Controller
 	/**
 	 * Fetch all published blog posts.
 	 *
-	 * @return Response
+	 * @return Post[]
 	 */
 	public function posts() 
 	{
