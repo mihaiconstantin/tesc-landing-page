@@ -7,6 +7,14 @@ use Carbon\Carbon;
 
 class Post extends Model
 {
+    /*
+     * Default columns fetched by the `filtered` query scope.
+     */
+    public static $defaultColumns = ['id', 'title', 'seo_title', 'excerpt', 'image', 'slug', 'featured', 'created_at', 'author_id', 'category_id'];
+
+
+    #region Relationships.
+
 	/**
 	 * Get the user (i.e., author) that owns a given post (i.e., project).
 	 */
@@ -24,6 +32,10 @@ class Post extends Model
     	return $this->belongsTo('App\Category');
     }
 
+    #endregion
+
+
+    #region Accessors and mutators.
 
     /**
      * Get Carbon formatted creation date of a post.
@@ -40,6 +52,63 @@ class Post extends Model
       	);
     }
 
+    #endregion
+
+
+    #region Query scopes.
+
+    /**
+     * Query scope for post status.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param $status
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeWithStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
+
+
+    /**
+     * Query scope for featured posts.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFeatured($query) {
+        return $query->where('featured', 1);
+    }
+
+
+    /**
+     * Get all posts matching a series for conditions.
+     *
+     * @param $query
+     * @param null $authorId
+     * @param null $categoryId
+     * @param null $howMany
+     * @param array $columns
+     * @param string $status
+     * @param string $order
+     * @return mixed
+     */
+    public function scopeFiltered($query, $authorId = NULL, $categoryId = NULL, $howMany = NULL, $columns = NULL, $status = 'PUBLISHED', $order = 'desc')
+    {
+        return $query
+            ->select($columns ?? self::$defaultColumns)
+            ->withStatus($status)
+            ->when($categoryId, function ($query) use ($categoryId) { return $query->where('category_id', $categoryId); })
+            ->when($authorId, function ($query) use ($authorId) { return $query->where('author_id', $authorId); })
+            ->orderBy('created_at', $order)
+            ->take($howMany)
+            ->with(['User', 'Category']);
+    }
+
+    #endregion
+
+
+    #region Specialized retrievers.
 
    	/**
    	 * Fetch the next post (i.e., by creation date) from a specified
@@ -51,49 +120,49 @@ class Post extends Model
    	 */
    	public static function pickNext(int $categoryId, string $slug) 
    	{
-      $post = self::where([
-        ['category_id', '=', $categoryId],
-        ['slug', '<>', $slug]
-      ])
-      ->inRandomOrder()
-      ->first();
-   		
-      return $post;
+      return static::where([
+          ['category_id', $categoryId],
+          ['slug', '<>', $slug]])
+          ->withStatus('PUBLISHED')
+          ->inRandomOrder()
+          ->first();
    	}
 
 
-   	/**
-   	 * Fetch all the posts filtered by some fields.
-   	 *
-   	 * @param  string  $status 		The status of the post: PUBLISHED, DRAFT, PENDING.
-   	 * @param  string  $order 		The sort direction applied on the `created_at` column.
-   	 * @param  int 	   $categoryId 	The id of the category to select the next post from.
-   	 * @param  int 	   $howMany 	The number of posts to select.
-     * @return mixed 
-   	 */
-   	public static function getFiltered(string $status = 'PUBLISHED', string $order = 'desc', int $categoryId = null, int $howMany = null) 
+    /**
+     * Get all published posts by a given author.
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function byAuthor($id)
     {
-      // Building the condition array for where clause.
-      $conditions = array(
-        ['status', '=', $status]
-      );
-
-      if (isset($categoryId)) 
-      {
-        $conditions[] = ['category_id', '=', $categoryId];
-      }
-
-      // Start building the query.
-      $query = self::where($conditions)->orderBy('created_at', $order);
-
-      // Decide how many posts to take.
-      if (isset($howMany)) 
-      {
-        $query = $query->take($howMany);
-      }
-
-      // Execute the query.
-      return $query->with(['User', 'Category'])->get();
+        return static::filtered($id)->get();
     }
+
+
+    /**
+     * Get all published posts in a given category.
+     *
+     * @param $categoryId
+     * @return mixed
+     */
+    public static function inCategory($categoryId)
+    {
+        return static::filtered(NULL, $categoryId)->get();
+    }
+
+
+    /**
+     * Get all published posts.
+     *
+     * @return mixed
+     */
+    public static function allPublished()
+    {
+        return static::filtered()->get();
+    }
+    
+    #endregion
 
 }

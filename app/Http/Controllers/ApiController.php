@@ -55,7 +55,7 @@ class ApiController extends Controller
 	 */
 	public function posts() 
 	{
-		return Post::getFiltered($status = 'PUBLISHED', $order = 'desc');
+        return Post::allPublished();
 	}
 
 
@@ -68,7 +68,7 @@ class ApiController extends Controller
      */
 	public function author($id)
 	{
-		return Post::where('author_id', '=', $id)->orderBy('created_at', 'desc')->with(['User', 'Category'])->get();
+		return Post::byAuthor($id);
 	}
 
 
@@ -82,7 +82,7 @@ class ApiController extends Controller
 	public function category($slug)
 	{
 		$categoryId = Category::identifySlug($slug);
-		return Post::where('category_id', '=', $categoryId)->orderBy('created_at', 'desc')->with(['User', 'Category'])->get();
+		return Post::inCategory($categoryId);
 	}
 
 }
