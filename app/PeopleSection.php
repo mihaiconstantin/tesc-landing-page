@@ -63,4 +63,17 @@ class PeopleSection extends Model
         return $founders->merge($employees);
     }
 
+
+
+    /**
+     * Get all people in the `people_sections` table available for display.
+     *
+     * @param array $columns
+     * @return mixed
+     */
+    public static function activeMembers($columns = ['id', 'name', 'description', 'link', 'image', 'role', 'order'])
+    {
+        return static::select($columns)->display()->orderBy('order', 'asc')->get();
+    }
+
 }

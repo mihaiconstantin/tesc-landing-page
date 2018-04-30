@@ -5,6 +5,7 @@
 			<h1 class="display-2">People</h1>
 		</div>
 
+		<!-- Founders' sub-section. -->
 		<div id="people-1" class="br row justify-content-center">
 			<div class="bg col-11 app-section-subtitle">
 				<h2 class="display-4 text-center">Initiators</h2>
@@ -21,18 +22,23 @@
 			</div>
 		</div>
 
+
+		<!-- Employees' sub-section. -->
 		<div id="people-2" class="br row justify-content-center">
 			<div class="bg col-11 app-section-subtitle">
 				<h2 class="display-4 text-center">Collaborators</h2>
 			</div>
 
-			<div class="bg col-11">
+			<div class="bg col-10">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap bottom-enter">
-					<a v-for="person in items" v-if="person.role == 'employee'" :href="person.link" class="bp col-md-3 text-center tesc-collaborator">
+					<a v-for="person in items" v-if="person.role == 'employee'" :href="person.link" class="bp col-md-4 text-center tesc-collaborator">
 						<img :src="revealPath(person.image, 'storage')" :alt="person.name" class="rounded-circle" width="140" height="140">
 						<h2>{{ person.name }}</h2>
 						<p>{{ person.description }}</p>
 					</a>
+
+					<a href="/page/tesc-members" class="tesc-collaborators-team-button btn btn-app-color" role="button">Meet the entire team&raquo;</a>
+
 				</div>
 			</div>
 		</div>
@@ -102,6 +108,10 @@
 		h2 {
 			color: $app-orange;
 		}
+	}
+
+	.tesc-collaborators-team-button {
+		margin-top: 2rem;
 	}
 
 	.app-section-title {
