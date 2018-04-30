@@ -46,7 +46,7 @@ class PeopleSectionsTableSeeder extends Seeder
             2 => 
             array (
                 'name' => 'Employee 1',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'male',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/95ycBZjiWH72UwqToqDO.png',
@@ -59,7 +59,7 @@ class PeopleSectionsTableSeeder extends Seeder
             3 => 
             array (
                 'name' => 'Employee 2',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'male',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/eeSfRMRT6EpzqbUYyFnn.png',
@@ -72,7 +72,7 @@ class PeopleSectionsTableSeeder extends Seeder
             4 => 
             array (
                 'name' => 'Employee 3',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'male',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/MozvbiThbAixp2vAr12O.png',
@@ -85,7 +85,7 @@ class PeopleSectionsTableSeeder extends Seeder
             5 => 
             array (
                 'name' => 'Employee 4',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/If4PdsAPCX1omHmbpRdM.png',
@@ -98,7 +98,7 @@ class PeopleSectionsTableSeeder extends Seeder
             6 => 
             array (
                 'name' => 'Employee 5',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/s0fmAOFZRmlc5E0ayycz.png',
@@ -111,7 +111,7 @@ class PeopleSectionsTableSeeder extends Seeder
             7 => 
             array (
                 'name' => 'Employee 6',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/YPgO0zVqL8BvgowUJKZe.png',
@@ -124,7 +124,7 @@ class PeopleSectionsTableSeeder extends Seeder
             8 => 
             array (
                 'name' => 'Employee 7',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                 'gender' => 'female',
                 'link' => 'https://www.uvt.nl',
                 'image' => 'people-sections/February2018/N9tkZiFgjdqqZ9w6IYyL.png',
