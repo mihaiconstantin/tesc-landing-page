@@ -45,6 +45,10 @@ GOOGLE_RECAPTCHA_SITE_KEY=recaptcha_site_key
 ```
 php artisan migrate --seed
 ```
+- link to `storage` folder:
+```
+php artisan storage:link
+``` 
 - start the developmental server:
 ```
 php artisan serve
