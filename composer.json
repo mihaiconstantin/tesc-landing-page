@@ -1,9 +1,9 @@
 {
     "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "description": "Tilburg Experience Sampling Center.",
     "keywords": [
-        "framework",
-        "laravel"
+        "experience sampling",
+        "tilburg"
     ],
     "license": "MIT",
     "type": "project",
@@ -13,7 +13,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "tcg/voyager": "^1.0"
+        "tcg/voyager": "1.0.*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
