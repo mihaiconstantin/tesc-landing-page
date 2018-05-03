@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 	return view('index');
-})->name('index');
+})->name('index')->middleware('ie:11');
 
 
 /*
@@ -42,10 +42,10 @@ Route::get('subscription/unsubscribe/{token}',  'SubscriptionController@unsubscr
 /*
  * Routes for the blog pages.
  */
-Route::get('blog/', 				'BlogController@index')		->name('blog.home');
+Route::get('blog/', 				'BlogController@index')		->name('blog.home')		->middleware('ie:11');
 Route::get('blog/post/{slug}', 		'BlogController@post')		->name('blog.post');
-Route::get('blog/author/{id}', 		'BlogController@author')	->name('blog.author');
-Route::get('blog/category/{slug}', 	'BlogController@category')	->name('blog.category');
+Route::get('blog/author/{id}', 		'BlogController@author')	->name('blog.author')	->middleware('ie:11');
+Route::get('blog/category/{slug}', 	'BlogController@category')	->name('blog.category')	->middleware('ie:11');
 
 
 /*
