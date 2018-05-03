@@ -40,4 +40,15 @@ class BrowserCheck
         );
     }
 
+
+    /**
+     * Checks if a browaser is Internet Explorer of version 11.
+     *
+     * @return mixed
+     */
+    public function isInternetExplorer11()
+    {
+        return $this->browser::isIEVersion(11);
+    }
+
 }

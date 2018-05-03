@@ -42,4 +42,16 @@ class BladeDirective
         });
     }
 
+
+    /**
+     * Register directive for checking if a browser is Internet Explorer of version 11.
+     *
+     * @param $directiveName
+     */
+    public function registerInternetExplorer11($directiveName)
+    {
+        Blade::if($directiveName, function () {
+            return $this->browserChecks->isInternetExplorer11();
+        });
+    }
 }

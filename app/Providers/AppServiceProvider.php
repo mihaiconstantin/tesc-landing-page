@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         $directive = new BladeDirective(new BrowserCheck(new \Browser));
         $directive->registerInternetExplorer('internetExplorer');
         $directive->registerSupportedInternetExplorerVersion('supportedVersion');
+        $directive->registerInternetExplorer11('supportedInternetExplorerVersion');
     }
 
     /**
