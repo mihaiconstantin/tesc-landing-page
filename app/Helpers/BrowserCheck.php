@@ -42,7 +42,7 @@ class BrowserCheck
 
 
     /**
-     * Checks if a browaser is Internet Explorer of version 11.
+     * Checks if a browser is Internet Explorer of version 11.
      *
      * @return mixed
      */

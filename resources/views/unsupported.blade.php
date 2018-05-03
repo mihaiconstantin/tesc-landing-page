@@ -17,7 +17,7 @@
 
 	<!-- Main message. -->
 	<div class="bk subscription-action_message col-md-10 m-auto text-center lead">
-		It appears that you are using an old browser. We only support <br> modern browsers and Internet Explorer 11.
+		It appears that you are using an old browser. We only support <br> modern browsers and Internet Explorer {{ $version }}.
 	</div>
 
 	<!-- Secondary message. -->
