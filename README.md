@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/mihaiconstantin/tesc-landing-page/releases/tag/v1.0.0">
-		<img src="https://img.shields.io/badge/stable-v1.0.0-blue.svg?style=flat-square" alt="Latest Stable Release">
+	<a href="https://github.com/mihaiconstantin/tesc-landing-page/releases/latest">
+		<img src="https://img.shields.io/badge/stable-v1.0.*-blue.svg?style=flat-square" alt="Latest Stable Release">
 	</a>	
 	<a href="https://opensource.org/licenses/MIT">
 		<img src="https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square" alt="License">
