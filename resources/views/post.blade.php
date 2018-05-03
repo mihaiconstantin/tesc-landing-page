@@ -1,11 +1,15 @@
 @extends('templates.post')
 
 
-
 @section('meta_seo')
 	<meta name="description" content="{{ $post->meta_description }}">
 	<meta name="keywords" content="{{ $post->meta_keywords }}">
 	<meta name="author" content="{{ $post->author_id }}">
+@endsection
+
+
+@section('styles')
+	@include('partials._styles_post')
 @endsection
 
 
@@ -77,4 +81,9 @@
 
 		</div>
 	</main>
+@endsection
+
+
+@section('scripts')
+	@include('partials._scripts_post')
 @endsection

@@ -4,7 +4,7 @@
 		<div id="footer-1" class="br row d-flex flex-column justify-content-center align-items-center">
 		
 			<div class="bk footer-logo">
-				<img :src="revealPath(settings.footer_logo, 'storage')" alt="TESC logo">
+				<img :src="revealPath(settings.footer_logo, 'storage')" alt="TESC logo" class="img-fluid">
 			</div>
 
 			<div class="bk footer-subscribe col-lg-4 col-md-5 col-sm-6 col-9">
@@ -136,6 +136,10 @@
 
 	.footer-logo {
 		margin-top: .5rem;
+
+		img {
+			width: 213px;
+		}
 	}
 
 	.footer-subscribe {

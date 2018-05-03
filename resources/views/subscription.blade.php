@@ -1,8 +1,15 @@
 @extends('templates.subscription')
 
 
-@section('content')
+@section('styles')
+	@include('partials._styles_subscription')
+@endsection
 
+
+@section('title', 'Manage Subscription')
+
+
+@section('content_subscription')
 	<!-- Subscription action title. -->
 	<div class="bk subscription-action_title col-md-10 m-auto text-center">
 		@if($action == 'subscribe')
@@ -43,5 +50,4 @@
 			P.S. If you think this message is a mistake, please use the contact form on the<br>landing page to let us know.
 		@endif
 	</div>
-
 @endsection

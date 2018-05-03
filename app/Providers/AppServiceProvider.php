@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Helpers\BrowserCheck;
 use Illuminate\Support\ServiceProvider;
+use App\Helpers\BladeDirective;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Register custom Blade directives.
+        $directive = new BladeDirective(new BrowserCheck(new \Browser));
+        $directive->registerInternetExplorer('internetExplorer');
+        $directive->registerSupportedInternetExplorerVersion('supportedVersion');
+        $directive->registerInternetExplorer11('supportedInternetExplorerVersion');
     }
 
     /**
