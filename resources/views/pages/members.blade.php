@@ -2,14 +2,12 @@
 
 
 @section('meta_seo')
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
+	<meta name="description" content="{{ setting('site.description') }}">
+	<meta name="keywords" content="{{ setting('site.keywords') }}">
 @endsection
 
 
-@section('complex_page_style')
-    <!-- Styles for complex pages. -->
+@section('_styles_page')
     {{--<link rel="stylesheet" href="{{ URL::asset('css/members.css') }}">--}}
 @endsection
 
@@ -18,7 +16,10 @@
 
 
 @section('content')
-    <!-- NavBar. -->
+	Members page content here.
+@endsection
 
-    <!-- Content (i.e., complex in this case, or `Page->body` for simple pages). -->
+
+@section('_styles_page')
+	{{--<link rel="stylesheet" href="{{ URL::asset('js/members.js') }}">--}}
 @endsection

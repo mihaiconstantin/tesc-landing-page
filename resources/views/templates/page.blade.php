@@ -9,8 +9,7 @@
 
     <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon">
     
-    @include('partials._styles_page')
-    @yield('complex_page_style')
+    @yield('_styles_page')
 
     <title>TESC - @yield('title')</title>
 </head>
@@ -18,7 +17,7 @@
 <body>
     @yield('content')
 
-    @include('partials._scripts_page')
+    @yield('_scripts_page')
 </body>
 
 <!-- By Mihai Constantin - m.a.constantin@uvt.nl -->
