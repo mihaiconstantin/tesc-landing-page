@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+/*
+ * Routes that are called asynchronously to populate the Vuex Store and update the database.
+ */
+Route::get('landing-page', 			'ApiController@landingPage')		->name('api.landingPage');
+Route::get('members', 				'ApiController@members')			->name('api.members');
+Route::get('posts', 				'ApiController@posts')				->name('api.posts');
+Route::get('posts/author/{id}', 	'ApiController@author')				->name('api.posts.author');
+Route::get('posts/category/{slug}', 'ApiController@category')			->name('api.posts.category');
