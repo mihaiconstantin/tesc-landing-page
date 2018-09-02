@@ -70,6 +70,26 @@
 
 	#app-people {
 		color: $app-white;
+
+		img {
+			filter: grayscale(100%);
+			transition: filter .5s;
+		}
+
+		.tesc-collaborator:hover img, .tesc-founder:hover img {
+			filter: grayscale(0%);
+			animation: pulse 1s infinite;
+			animation-direction: alternate;
+		}
+
+		@keyframes pulse {
+			0%, 50% {
+				transform: scale(1);
+			}
+			50%, 100% {
+				transform: scale(1.09);
+			}
+		}
 	}
 
 	#people-1, #people-2 {
