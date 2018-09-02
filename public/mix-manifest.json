@@ -3,8 +3,10 @@
     "/css/index.css": "/css/index.css",
     "/css/post.css": "/css/post.css",
     "/css/blog.css": "/css/blog.css",
+    "/css/members.css": "/css/members.css",
     "/css/subscription.css": "/css/subscription.css",
     "/css/voyager-override.css": "/css/voyager-override.css",
     "/js/blog.js": "/js/blog.js",
-    "/js/post.js": "/js/post.js"
+    "/js/post.js": "/js/post.js",
+    "/js/members.js": "/js/members.js"
 }
