@@ -43,8 +43,9 @@
 		data() {
 		   return {
 			   links: [
-				   {name: 'Home',	href: '/'	},
-				   {name: 'Blog',	href: '/blog'	},
+				   {name: 'Home',		href: '/'					},
+				   {name: 'Blog',		href: '/blog'				},
+				   {name: 'Members',	href: '/page/tesc-members'	}
 			   ],
 			   activeLink: this.setActiveLink
 		   }
