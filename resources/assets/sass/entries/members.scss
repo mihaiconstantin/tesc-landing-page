@@ -1,0 +1,28 @@
+@import '../bootstrap';
+
+
+body {
+	padding-top: 105px;
+	background-color: $app-white;
+}
+
+#app-page-members {
+	overflow: hidden;
+
+	section {
+		margin-bottom: 1.5rem;
+
+		> .row {
+			padding: 1.5rem 0;
+		}
+	}
+
+	footer {
+		margin-bottom: 1.5rem;
+	}
+
+	.app-section-title {
+		color: $app-black;
+	}
+}
+
