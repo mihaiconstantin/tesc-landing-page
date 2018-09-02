@@ -104,7 +104,7 @@
 					errorText: '&#x274C; We could not add you. Please try again later with a different address.',
 					status: true,
 					buttonOn: true,
-					buttonText: 'Keep me informed!',
+					buttonText: 'Keep me posted!',
 				},
 				subscriberEmail: ''
 			}
@@ -184,6 +184,8 @@
 	}
 
 	.footer-copyright {
+		margin-bottom: 1.5rem;
+
 		p {
 			font-size: .8rem;
 			margin-bottom: 0;
@@ -194,4 +196,13 @@
 			color: $app-black;
 		}
 	}
+
+	.footer-author {
+		p {
+			font-size: .8rem;
+			margin-bottom: 0;
+			text-align: center;
+		}
+	}
+
 </style>

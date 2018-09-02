@@ -17,6 +17,13 @@
 			</div>
 		</div>
 
+		<!-- Developer -->
+		<div class="row">
+			<div class="bs app-page-footer-author text-center col-12">
+				<p class="text-muted ">Website created by <a href="https://constantinmihai.com" target="_blank">Mihai A. Constantin</a>.</p>
+			</div>
+		</div>
+
 	</footer>
 </template>
 
@@ -73,6 +80,8 @@
 		}
 
 		.app-blog-footer-copyright {
+			margin-bottom: .5rem;
+
 			p {
 				font-size: .8rem;
 				margin-bottom: 0;
@@ -82,6 +91,14 @@
 			a {
 				color: $app-black;
 				text-decoration: none;
+			}
+		}
+
+		.app-page-footer-author {
+			p {
+				font-size: .8rem;
+				margin-bottom: 0;
+				text-align: center;
 			}
 		}
 	}
