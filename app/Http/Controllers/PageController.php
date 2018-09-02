@@ -34,7 +34,7 @@ class PageController extends Controller
 	public function members()
 	{
 		$members = PeopleSection::activeMembersInRandomOrder();
-		return view('pages.members', $members);
+		return view('pages.members', ['members' => $members]);
 	}
 
 }

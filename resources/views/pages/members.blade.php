@@ -8,7 +8,7 @@
 
 
 @section('_styles_page')
-    {{--<link rel="stylesheet" href="{{ URL::asset('css/members.css') }}">--}}
+    <link rel="stylesheet" href="{{ URL::asset('css/members.css') }}">
 @endsection
 
 
@@ -20,6 +20,8 @@
 @endsection
 
 
-@section('_styles_page')
-	{{--<link rel="stylesheet" href="{{ URL::asset('js/members.js') }}">--}}
+@endsection
+
+@section('_scripts_page')
+	<script src="{{ URL::asset('js/members.js') }}"></script>
 @endsection
