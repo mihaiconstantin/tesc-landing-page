@@ -19,7 +19,7 @@ class CreateSubscriptionsTable extends Migration
             $table->string('token')->unique();
             $table->tinyInteger('verified')->default(0);
             $table->tinyInteger('active')->default(1);
-            $table->ipAddress('ip');
+            $table->ipAddress('ip')->nullable();
             $table->timestamps();
         });
     }

@@ -11,18 +11,11 @@
 |
 */
 
+// TODO: add the ogg facebook to the master template.
+
 Route::get('/', function () {
 	return view('index');
 })->name('index')->middleware('ie:11');
-
-
-/*
- * Routes that are called asynchronously to populate the Vuex Store and update the database.
- */
-Route::get('api/landing-page', 			'ApiController@landingPage')		->name('api.landingPage');
-Route::get('api/posts', 				'ApiController@posts')				->name('api.posts');
-Route::get('api/posts/author/{id}', 	'ApiController@author')				->name('api.posts.author');
-Route::get('api/posts/category/{slug}', 'ApiController@category')			->name('api.posts.category');
 
 
 /*
@@ -46,6 +39,13 @@ Route::get('blog/', 				'BlogController@index')		->name('blog.home')		->middlewa
 Route::get('blog/post/{slug}', 		'BlogController@post')		->name('blog.post');
 Route::get('blog/author/{id}', 		'BlogController@author')	->name('blog.author')	->middleware('ie:11');
 Route::get('blog/category/{slug}', 	'BlogController@category')	->name('blog.category')	->middleware('ie:11');
+
+
+/*
+ * Routes for the pages model.
+ */
+Route::get('page/tesc-members', 	'PageController@members') 	-> name('page.members');
+Route::get('page/{slug}', 			'PageController@index') 	-> name('page.index');
 
 
 /*

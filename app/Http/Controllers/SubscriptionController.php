@@ -19,7 +19,7 @@ class SubscriptionController extends Controller
         // Add or reactivates the subscription accordingly and sends a verification mail
         $status = Subscription::handleSubscription([
            'email' => $request->email,
-           'ip' => $request->ip()
+           'ip' => NULL
         ]);
 
         return $status ? 'ok' : 'nok';

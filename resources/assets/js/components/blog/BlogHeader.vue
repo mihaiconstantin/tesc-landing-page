@@ -13,8 +13,8 @@
 			<!-- Filter input. -->			
 			<div v-if="totalPosts > 0" class="bs app-blog-filter text-center col-md-7 mx-auto">
 				<label class="sr-only" for="blogSearch">Filter:</label>
-				<input v-model="filterText" id="blogSearch" class="form-control form-control-lg text-center" type="text" placeholder="Posts will filter as you type here...">					
-				<p v-if="filterText.length > 0" class="bk app-blog-filter-count small text-muted">{{ filterCounter }} matches</p>
+				<input v-model="filterText" id="blogSearch" class="form-control form-control-lg text-center" type="text" placeholder="Posts will filter as you type...">
+				<p v-if="filterText.length > 0" class="bk app-blog-filter-count small text-muted">{{ filterCounter }} {{ filterCounter < 2 ? 'match' : 'matches' }}</p>
 			</div>
 
 			<!-- Not found message. -->

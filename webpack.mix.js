@@ -26,6 +26,11 @@ mix.js('resources/assets/js/entries/blog.js', 			'public/js')
    .sass('resources/assets/sass/entries/blog.scss',		'public/css');
 
 
+// Members page.
+mix.js('resources/assets/js/entries/members.js', 			'public/js')
+	.sass('resources/assets/sass/entries/members.scss',		'public/css');
+
+
 // Subscription template styles (i.e., used in subscribe.blade and unsubscribe.blade).
 mix.sass('resources/assets/sass/entries/subscription.scss', 'public/css');
 

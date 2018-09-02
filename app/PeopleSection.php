@@ -76,4 +76,17 @@ class PeopleSection extends Model
         return static::select($columns)->display()->orderBy('order', 'asc')->get();
     }
 
+
+
+	/**
+	 * Get all people in the `people_sections` table available for display in random order.
+	 *
+	 * @param array $columns
+	 * @return mixed
+	 */
+	public static function activeMembersInRandomOrder($columns = ['id', 'name', 'description', 'link', 'image', 'role', 'order'])
+	{
+        return static::select($columns)->display()->inRandomOrder()->get();
+    }
+
 }

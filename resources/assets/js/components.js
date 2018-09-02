@@ -3,6 +3,13 @@
 // Agnostic components.
 import WordAnimation from './components/WordAnimation.vue';
 
+// Reusable components
+import PageNavbar from './components/reusable/PageNavbar.vue';
+import PageFooter from './components/reusable/PageFooter.vue';
+
+// Members' page components
+import MembersPeople from './components/members/MembersPeople.vue';
+
 // Landing page (i.e., index) components.
 import MainNavBar from './components/index/MainNavBar.vue';
 import Carousel from './components/index/Carousel.vue';
@@ -23,7 +30,14 @@ import BlogHeader from './components/blog/BlogHeader.vue';
 export {
 	// Agnostic components
 	WordAnimation,
-	
+
+	// Reusable components
+	PageNavbar,
+	PageFooter,
+
+	// Members' page components
+	MembersPeople,
+
 	// Landing page components
 	MainNavBar,
 	Carousel,

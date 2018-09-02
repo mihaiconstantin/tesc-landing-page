@@ -2,7 +2,7 @@
 	<div id="app-blog-navbar">
 
 		<nav class="br navbar navbar-expand-sm fixed-top navbar-light bg-app-navbar">
-			<a class="bg navbar-brand" href="/blog">
+			<a class="bg navbar-brand" :href="logoLink">
 				<img :src="revealPath(logo, '/storage')" alt="TESC logo" class="img-fluid">
 			</a>
 
@@ -37,16 +37,13 @@
 
 		props: [
 			'logo',
+			'logoLink',
+			'links',
 			'setActiveLink'
 		],
 
 		data() {
 		   return {
-			   links: [
-				   {name: 'Home',		href: '/'					},
-				   {name: 'Blog',		href: '/blog'				},
-				   {name: 'Members',	href: '/page/tesc-members'	}
-			   ],
 			   activeLink: this.setActiveLink
 		   }
 		},
