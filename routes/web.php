@@ -44,8 +44,8 @@ Route::get('blog/category/{slug}', 	'BlogController@category')	->name('blog.cate
 /*
  * Routes for the pages model.
  */
-Route::get('page/members', 	'PageController@members') 	-> name('page.members');
-Route::get('page/{slug}', 	'PageController@index') 	-> name('page.index');
+Route::get('page/tesc-members', 	'PageController@members') 	-> name('page.members');
+Route::get('page/{slug}', 			'PageController@index') 	-> name('page.index');
 
 
 /*
