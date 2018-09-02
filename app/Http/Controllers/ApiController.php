@@ -25,7 +25,8 @@ class ApiController extends Controller
 			$siteSettingsVoyager = array(
 				'navbar_logo' 		=> setting('site.navbar_logo'),
 				'footer_logo' 		=> setting('site.footer_logo'),
-				'terms_conditions' 	=> setting('site.terms_conditions')
+				'terms_conditions' 	=> setting('site.terms_conditions'),
+				'privacy_policy' 	=> setting('site.privacy_policy')
 			);
 		} catch (\Exception $e) {
 			$siteSettingsVoyager = $e->getMessage();

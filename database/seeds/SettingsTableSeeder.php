@@ -198,6 +198,17 @@ class SettingsTableSeeder extends Seeder
                 'order' => '12',
                 'group' => 'Site',
             ),
+			16 =>
+			array (
+				'id' => '19',
+				'key' => 'site.privacy_policy',
+				'display_name' => 'Privacy Policy',
+				'value' => 'Privacy Policy text goes here.',
+				'details' => NULL,
+				'type' => 'rich_text_box',
+				'order' => '13',
+				'group' => 'Site',
+			),
         ));
         
         

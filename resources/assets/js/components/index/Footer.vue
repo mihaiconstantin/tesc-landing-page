@@ -15,7 +15,10 @@
 						<input v-model="subscriberEmail" type="email" class="form-control form-control-sm" id="subscribeInput" required placeholder="example@email.com">
 						<button :disabled="!ui.buttonOn" type="submit" class="btn btn-sm ml-2">{{ ui.buttonText }}</button>
 					</form>
-					<small id="subscribeInputTerms" class="bp form-text text-muted">By susbcribing to the newsletter you agree with our <a href="#terms" data-toggle="modal" data-target=".terms-modal">Terms and Conditions</a>.</small>
+					<small id="subscribeInputTerms" class="bp form-text text-muted">By using this website and subscribing to the newsletter you agree with our
+						<a href="#privacy" data-toggle="modal" data-target=".privacy-modal">Privacy Policy</a> and
+						<a href="#terms" data-toggle="modal" data-target=".terms-modal">Terms and Conditions</a>.
+					</small>
 				</div>
 
 				<div class="subscription-confirmation text-center" v-if="ui.showMessage"  v-html="statusMessage"></div>					
@@ -24,8 +27,37 @@
 			<div class="bk footer-copyright">
 				<p class="text-muted">Copyright &copy; {{ year }} <span>Tilburg Experience Sampling Center</span></p>
 			</div>
+
+			<div class="bk footer-author text-muted">
+				<p>Website created by <a href="https://constantinmihai.com" target="_blank">Mihai A. Constantin</a>.</p>
+			</div>
 		</div>
-			
+
+
+		<!-- Terms and Conditions Modal -->
+
+		<div class="modal fade privacy-modal" tabindex="-1" role="dialog" aria-labelledby="privacyModal" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<h5 class="modal-title" id="privacyModalTitle">Privacy Policy</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body" v-html="settings.privacy_policy"></div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn" data-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
 		<!-- Terms and Conditions Modal -->
 		
 		<div class="modal fade terms-modal" tabindex="-1" role="dialog" aria-labelledby="termsModal" aria-hidden="true">
