@@ -4,6 +4,9 @@
 @section('meta_seo')
 	<meta name="description" content="{{ setting('site.description') }}">
 	<meta name="keywords" content="{{ setting('site.keywords') }}">
+	
+	<meta property="og:description" name="description" content="{{ setting('site.description') }}">
+	<meta property="og:image:url" content="{{ secure_asset('img/logo.png') }}">
 @endsection
 
 
