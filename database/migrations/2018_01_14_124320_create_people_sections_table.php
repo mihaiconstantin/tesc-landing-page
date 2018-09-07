@@ -20,7 +20,7 @@ class CreatePeopleSectionsTable extends Migration
             $table->string('email')->unique();
             $table->string('link');
             $table->string('image');
-            $table->enum('role', ['founder', 'employee']);
+            $table->enum('role', ['founder', 'employee'])->default('employee');
             $table->boolean('display')->default(1);
             $table->tinyInteger('order');
             $table->timestamps();
