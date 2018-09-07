@@ -2,7 +2,7 @@
 	<section id="app-people" class="">
 
 		<div class="bg col-12 text-center app-section-title">
-			<h1 class="display-2">Meet the team</h1>
+			<h1 class="display-2">Meet the Team</h1>
 		</div>
 
 		<!-- Founders' sub-section. -->
@@ -32,6 +32,24 @@
 			<div class="bg col-10">
 				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap bottom-enter">
 					<a v-for="person in items" v-if="person.role == 'employee'" :href="person.link" class="bp col-md-4 text-center tesc-collaborator">
+						<img :src="revealPath(person.image, '/storage')" :alt="person.name" class="rounded-circle" width="140" height="140">
+						<h2>{{ person.name }}</h2>
+						<p>{{ person.description }}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Admins' sub-section. -->
+		<div id="people-3" class="br row justify-content-center">
+			<div class="bg col-11 app-section-subtitle">
+				<h2 class="display-4 text-center">Website Maintainers</h2>
+			</div>
+
+			<div class="bg col-10">
+				<div class="bw d-flex flex-row align-items-center justify-content-md-around flex-wrap bottom-enter">
+					<a v-for="person in items" v-if="person.role == 'admin'" :href="person.link" class="bp col-md-4 text-center tesc-collaborator">
 						<img :src="revealPath(person.image, '/storage')" :alt="person.name" class="rounded-circle" width="140" height="140">
 						<h2>{{ person.name }}</h2>
 						<p>{{ person.description }}</p>
@@ -87,7 +105,7 @@
 		}
 	}
 
-	#people-1, #people-2 {
+	#people-1, #people-2, #people-3 {
 		background-color: $app-bg-primary;
 	}
 
