@@ -134,6 +134,32 @@ class PeopleSectionsTableSeeder extends Seeder
                 'created_at' => '2018-02-02 17:41:20',
                 'updated_at' => '2018-02-06 22:33:19',
             ),
+            9 =>
+            array (
+                'name' => 'Administrative 1',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+                'gender' => 'male',
+                'link' => 'https://www.uvt.nl',
+                'image' => 'people-sections/February2018/N9tkZiFgjdqqZ9w6IYyL.png',
+                'role' => 'admin',
+                'display' => '1',
+                'order' => '10',
+                'created_at' => '2018-02-02 17:41:20',
+                'updated_at' => '2018-02-06 22:33:19',
+            ),
+            10 =>
+            array (
+                'name' => 'Administrative 2',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio et facilis magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+                'gender' => 'female',
+                'link' => 'https://www.uvt.nl',
+                'image' => 'people-sections/February2018/N9tkZiFgjdqqZ9w6IYyL.png',
+                'role' => 'admin',
+                'display' => '1',
+                'order' => '11',
+                'created_at' => '2018-02-02 17:41:20',
+                'updated_at' => '2018-02-06 22:33:19',
+            ),
         ));
         
         
