@@ -19,9 +19,9 @@ class PageController extends Controller
 	 */
 	public function index($slug)
     {
+		abort(404);
     	// $page = Page::where('slug', '=', $slug)->firstOrFail();
 		// return view('pages.index', compact('page'));
-		return 'Universal pages: work in progress.';
     }
 
 
